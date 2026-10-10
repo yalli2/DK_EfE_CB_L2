@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English for Everyone · Level 2 — Interactive Units 1–5</title>
+<meta name="description" content="English for Everyone Level 2 (Beginner) Units 1–5 인터랙티브 수업 사이트">
+<style>
+:root{--bg:#fdf8f1;--card:#fff;--ink:#23201c;--mut:#6b645a;--line:#eadfce}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1916;--card:#25221e;--ink:#f3ede4;--mut:#aaa196;--line:#3a352e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.55}
+.wrap{max-width:1000px;margin:0 auto;padding:36px 16px 60px}
+h1{font-size:clamp(26px,5vw,40px);margin:0 0 6px}
+.sub{color:var(--mut);margin:0 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--line);border-top:8px solid hsl(var(--h) 70% 48%);border-radius:16px;padding:18px 18px 16px;transition:transform .15s,box-shadow .15s}
+a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 22px #0002;outline:none}
+.no{font-size:13px;font-weight:800;letter-spacing:.08em;color:hsl(var(--h) 70% 38%)}
+@media (prefers-color-scheme:dark){.no{color:hsl(var(--h) 80% 70%)}}
+.t{font-size:22px;font-weight:800;margin:2px 0 4px}
+.d{color:var(--mut);font-size:14px;margin:0 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tags span{font-size:12px;background:hsl(var(--h) 80% 94%);color:hsl(var(--h) 60% 28%);border-radius:99px;padding:2px 10px}
+@media (prefers-color-scheme:dark){.tags span{background:hsl(var(--h) 25% 24%);color:hsl(var(--h) 70% 85%)}}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:hsl(var(--h) 70% 48%);transition:width .4s}
+.pc{font-size:12px;color:var(--mut);margin-top:5px}
+.note{margin-top:30px;font-size:13px;color:var(--mut);border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>📘 English for Everyone · Level 2</h1>
+  <p class="sub">Beginner Course Book — Unit 1~5 인터랙티브 수업 사이트 · 단원을 눌러 시작하세요</p>
+  <div class="grid" id="g"></div>
+  <p class="note">교재 pp. 12–29(Unit 1–5)의 학습 내용과 모든 연습문제를 학생이 직접 풀 수 있도록 만든 수업용 사이트입니다. 설명 도표와 그림은 직접 제작했고, 듣기 문제는 브라우저 음성(TTS)으로 읽어 줍니다. 공식 오디오는 교재 제공처(dkefe.com)에서 받을 수 있어요. 풀이 기록은 이 브라우저에만 저장됩니다.</p>
+</main>
+<script>
+(function(){
+  const U=[
+    [1,28,'Unit 1','Talking about yourself','be동사 am / is / are, 인사, 나이·국적·직업, 줄임말',['be 동사','자기소개'],8],
+    [2,272,'Unit 2','Talking about routines','현재 단순 긍정·부정, 하루 일과 말하기',['현재 단순','일과'],5],
+    [3,170,'Unit 3','Today I’m wearing…','현재진행형 긍정·부정, 옷과 활동',['현재진행형','옷'],7],
+    [4,208,'Unit 4',"What’s happening?",'현재진행형 의문문, 활동과 전자기기',['의문문','전자기기'],6],
+    [5,334,'Unit 5','Types of verbs','동작동사 vs 상태동사',['상태동사','단어 찾기'],3]];
+  let st={}; try{st=JSON.parse(localStorage.getItem('efe.l2.progress.v1')||'{}')||{};}catch(e){}
+  const g=document.getElementById('g');
+  U.forEach(([n,h,no,t,d,tags,tot])=>{
+    const b=st['u'+n]; const done=b&&b.done?Object.values(b.done).filter(Boolean).length:0;
+    const a=document.createElement('a'); a.className='card'; a.href='Unit'+n+'/'; a.style.setProperty('--h',h);
+    a.innerHTML='<div class="no">'+no.toUpperCase()+'</div><div class="t">'+t+'</div><p class="d">'+d+'</p><div class="tags">'+tags.map(x=>'<span>'+x+'</span>').join('')+'</div><div class="bar"><i style="width:'+Math.min(100,done/tot*100)+'%"></i></div><div class="pc">연습문제 '+done+' / '+tot+' 완료</div>';
+    g.appendChild(a);
+  });
+})();
+</script>
+</body>
+</html>

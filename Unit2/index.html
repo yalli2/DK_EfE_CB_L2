@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 2 · Talking about routines</title>
+<meta name="description" content="English for Everyone Level 2 · Unit 2 — 현재 단순 시제(present simple)로 일상 말하기: 도표 설명과 모든 연습문제 풀이">
+<link rel="stylesheet" href="../shared/efe.css">
+</head>
+<body data-unit="2">
+<main class="wrap" id="flow">
+
+<!-- ═════════ 한눈에 보기 ═════════ -->
+<section class="mod lesson" id="m2-0" data-label="미리보기">
+  <div class="mod-head"><span class="n">★</span><h2><span class="k">OVERVIEW</span> 현재 단순 시제 한눈에 보기<small>매일 반복되는 일, 취미, 가진 것을 말할 때</small></h2></div>
+  <div class="mod-body">
+    <p class="lead"><span class="hl">현재 단순 시제(present simple)</span>는 “지금 이 순간”이 아니라 <b>습관·반복·사실</b>을 말할 때 써요.</p>
+    <div class="grid3" id="uses"></div>
+    <h3 style="margin:22px 0 6px">⏰ 하루 일과 타임라인 <small class="ko-note">(카드를 누르면 문장을 읽어 줘요)</small></h3>
+    <div class="diagram"><div id="timeline" style="display:flex;gap:10px;overflow-x:auto;padding:4px 2px"></div></div>
+    <div class="tbl-scroll"><table class="ft">
+      <caption style="text-align:left;font-weight:700;padding:6px 2px">Unit 1(be동사)과 비교</caption>
+      <thead><tr><th></th><th>be동사 문장 (Unit 1)</th><th>일반동사 문장 (Unit 2)</th></tr></thead>
+      <tbody>
+        <tr><td class="k">긍정</td><td>She <b>is</b> a nurse.</td><td>She <b>works</b> in a hospital.</td></tr>
+        <tr><td class="k">부정</td><td>She is <b class="hl3">not</b> a nurse.</td><td>She <b class="hl3">does not</b> work in a hospital.</td></tr>
+        <tr><td class="k">의문</td><td><b>Is</b> she a nurse?</td><td><b>Does</b> she work in a hospital?</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<!-- ═════════ 2.1 ═════════ -->
+<section class="mod lesson" id="m2-1" data-label="2.1">
+  <div class="mod-head"><span class="n">2.1</span><h2><span class="k">KEY LANGUAGE</span> THE PRESENT SIMPLE<small>현재 단순 시제 — 동사원형, 그리고 he/she/it 에는 -s</small></h2></div>
+  <div class="mod-body">
+    <p>현재 단순 시제는 <b>동사원형(base form)</b>을 그대로 써요. 동사원형 = <span class="en">to</span> 를 뺀 기본형 (<span class="en">to eat → eat</span>).</p>
+    <div class="grid2" id="k21"></div>
+    <div class="note"><b>📌 규칙</b> <span class="en">I / You / We / They</span> → 동사원형 &nbsp;|&nbsp; <span class="en">He / She / It</span> → 동사원형 + <b class="hl3">s</b></div>
+  </div>
+</section>
+
+<!-- ═════════ 2.2 ═════════ -->
+<section class="mod lesson" id="m2-2" data-label="2.2">
+  <div class="mod-head"><span class="n">2.2</span><h2><span class="k">FURTHER EXAMPLES</span> THE PRESENT SIMPLE<small>더 많은 예문 · 3인칭 단수 동사 만들기</small></h2></div>
+  <div class="mod-body">
+    <div id="ex22"></div>
+    <h3 style="margin:18px 0 6px">🔧 he / she / it 동사 만들기 규칙</h3>
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>규칙</th><th>방법</th><th>예</th></tr></thead>
+      <tbody>
+        <tr><td>① 대부분</td><td>동사원형 + <b class="hl3">s</b></td><td>eat → eat<b class="hl3">s</b> · work → work<b class="hl3">s</b> · start → start<b class="hl3">s</b> · leave → leave<b class="hl3">s</b></td></tr>
+        <tr><td>② <b>-sh, -ch, -o, -ss, -x, -z</b> 로 끝나면</td><td>+ <b class="hl3">es</b></td><td>go → go<b class="hl3">es</b> · watch → watch<b class="hl3">es</b> · wash → wash<b class="hl3">es</b> · fix → fix<b class="hl3">es</b> · miss → miss<b class="hl3">es</b></td></tr>
+        <tr><td>③ <b>자음 + y</b> 로 끝나면 <small class="ko-note">(참고)</small></td><td>y → <b class="hl3">ies</b></td><td>study → stud<b class="hl3">ies</b> · try → tr<b class="hl3">ies</b> &nbsp;(play → plays : 모음+y 는 그냥 s)</td></tr>
+        <tr><td>④ 불규칙</td><td>have → <b class="hl3">has</b></td><td>I have a dog. → She <b class="hl3">has</b> a dog.</td></tr>
+      </tbody></table></div>
+    <p class="lead" style="margin-top:14px">🧪 직접 해 보기 — 동사를 입력하면 he / she / it 형태와 규칙을 알려 줘요</p>
+    <div class="tool"><input id="verbIn" placeholder="예: watch, go, study, get up" aria-label="동사 입력" autocomplete="off" autocapitalize="none" spellcheck="false"><button class="btn" type="button" id="verbBtn">변환</button><span class="res" id="verbOut"></span></div>
+    <div class="sw" id="verbQuick"></div>
+  </div>
+</section>
+
+<!-- ═════════ 2.3 ═════════ -->
+<section class="mod lesson" id="m2-3" data-label="2.3">
+  <div class="mod-head"><span class="n">2.3</span><h2><span class="k">HOW TO FORM</span> THE PRESENT SIMPLE<small>만드는 방법 — 주어와 동사를 바꿔 보세요</small></h2></div>
+  <div class="mod-body">
+    <p>주어 + 동사 + 나머지. 주어를 <b>He / She</b> 로 바꾸면 동사 조각 끝에 <b class="hl3">s / es</b> 가 붙는 걸 볼 수 있어요.</p>
+    <div id="puz23"></div>
+    <h3 style="margin:22px 0 6px">🕒 시간 표현: at · on · in <small class="ko-note">(연습문제에 나와요)</small></h3>
+    <div class="grid3" id="prep"></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m2-v" data-label="단어장">
+  <div class="mod-head"><span class="n">Aa</span><h2><span class="k">VOCABULARY</span> Routines and pastimes<small>일과·취미 표현 — 카드를 누르면 발음을 들려줘요</small></h2></div>
+  <div class="mod-body"><div id="v-rout"></div></div>
+</section>
+
+<div data-ex="2.4"></div>
+<div data-ex="2.5"></div>
+<div data-ex="2.6"></div>
+
+<!-- ═════════ 2.7 ═════════ -->
+<section class="mod lesson" id="m2-7" data-label="2.7">
+  <div class="mod-head"><span class="n">2.7</span><h2><span class="k">KEY LANGUAGE</span> THE PRESENT SIMPLE NEGATIVE<small>부정문 — do not / does not + 동사원형</small></h2></div>
+  <div class="mod-body">
+    <p>부정문은 동사 앞에 <b class="hl2">do not</b> 을 놓아요. 주어가 <span class="en">he / she / it</span> 이면 <b class="hl2">does not</b>.</p>
+    <div class="grid2" id="k27"></div>
+    <div class="warn"><b>⚠️ 핵심</b> 주어가 he / she / it 이어도 부정문에서는 <b>동사에 s 를 붙이지 않아요!</b> (s 는 <span class="en">does</span> 가 가져갔어요.) &nbsp;<span class="en"><s>He does not works</s></span> ✘ → <span class="en">He does not work</span> ✔</div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m2-8" data-label="2.8">
+  <div class="mod-head"><span class="n">2.8</span><h2><span class="k">FURTHER EXAMPLES</span> THE PRESENT SIMPLE NEGATIVE<small>부정문 예문과 줄임말</small></h2></div>
+  <div class="mod-body">
+    <div id="ex28"></div>
+    <div class="grid2">
+      <div class="exc" data-say="do not, don't" style="justify-content:center"><div class="tx">do not → <b class="hl2">don’t</b></div></div>
+      <div class="exc" data-say="does not, doesn't" style="justify-content:center"><div class="tx">does not → <b class="hl2">doesn’t</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m2-9" data-label="2.9">
+  <div class="mod-head"><span class="n">2.9</span><h2><span class="k">HOW TO FORM</span> THE PRESENT SIMPLE NEGATIVE<small>만드는 방법 · s 가 어디로 갔을까?</small></h2></div>
+  <div class="mod-body">
+    <div id="puz29"></div>
+    <div class="diagram"><div id="smove"></div><div class="cap">긍정문의 동사 끝 -s 가 부정문에서는 does 로 “이사”해요 → 동사는 원형!</div></div>
+  </div>
+</section>
+
+<div data-ex="2.10"></div>
+
+<!-- ═════════ 2.11 ═════════ -->
+<section class="mod lesson" id="m2-11" data-label="2.11">
+  <div class="mod-head"><span class="n">2.11</span><h2><span class="k">KEY LANGUAGE</span> QUESTIONS WITH “DO” AND “DOES”<small>의문문 — Do / Does 를 맨 앞에</small></h2></div>
+  <div class="mod-body">
+    <p>be동사가 아닌 대부분의 동사는 문장 앞에 <b class="hl2">Do</b> 또는 <b class="hl2">Does</b> 를 붙여 질문을 만들어요. 이때도 <b>본동사는 동사원형</b>!</p>
+    <div class="grid2" id="k211"></div>
+    <div class="diagram"><div id="flow211"></div><div class="cap">Do 와 Does 고르기 흐름도</div></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m2-12" data-label="2.12">
+  <div class="mod-head"><span class="n">2.12</span><h2><span class="k">FURTHER EXAMPLES</span> QUESTIONS WITH “DO” AND “DOES”<small>의문문 예문 · be동사와 비교</small></h2></div>
+  <div class="mod-body">
+    <div id="ex212"></div>
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>주어</th><th>맞는 도우미</th><th>예문</th></tr></thead>
+      <tbody>
+        <tr><td>I / you / we / they</td><td><b class="hl2">Do</b></td><td>Do you live in London? · Do I need a new coat?</td></tr>
+        <tr><td>he / she / it · 이름 한 명</td><td><b class="hl2">Does</b></td><td>Does Tom get up at 7am? · Does she go swimming?</td></tr>
+      </tbody></table></div>
+    <div class="tip"><b>🎵</b> Yes / No 질문은 끝을 올려요(↗). 짧은 대답은 <span class="en">Yes, I do. / No, she doesn’t.</span> 처럼 do/does 로 해요. <small>(참고)</small></div>
+  </div>
+</section>
+
+<div data-ex="2.13"></div>
+
+<div id="checklist"></div>
+</main>
+
+<script src="../shared/art.js"></script>
+<script src="../shared/efe.js"></script>
+<script>
+(function(){
+  const {h,$,$$}=EFE, A=ART;
+  EFE.chrome({unit:2,
+    intro:'현재 단순 시제로 매일의 일과, 취미, 가진 것을 말해요. 부정문과 의문문에는 do / does 를 써요.',
+    goals:[['New language','The present simple','현재 단순 시제'],['Vocabulary','Routines and pastimes','일과와 취미'],['New skill','Talking about routines','일상 말하기']]});
+
+  /* 3인칭 단수 변환 */
+  function third(phrase){
+    const parts=phrase.trim().toLowerCase().split(/\s+/); const v=parts[0]; let r,why;
+    if(v==='have'){r='has';why='불규칙 ④ : have → has';}
+    else if(/(s|sh|ch|x|z|o)$/.test(v)){r=v+'es';why='② -s, -sh, -ch, -x, -z, -o 로 끝나요 → +es';}
+    else if(/[^aeiou]y$/.test(v)){r=v.slice(0,-1)+'ies';why='③ 자음 + y 로 끝나요 → y 를 i 로 바꾸고 +es';}
+    else {r=v+'s';why='① 보통은 그냥 +s';}
+    return [[r].concat(parts.slice(1)).join(' '),why];
+  }
+
+  /* ── 한눈에 ── */
+  $('#uses').append(EFE.excards([
+    {pic:'🕖',en:'<span class="hl">Routines</span><br>I get up at 7.',ko:'매일의 일과'},
+    {pic:'🎾',en:'<span class="hl">Pastimes</span><br>She plays tennis.',ko:'취미 · 자주 하는 일'},
+    {pic:'🏠',en:'<span class="hl">Possessions</span><br>I have a microwave.',ko:'가진 것 · 사실'}]));
+  const tl=[[7,0,'🛏️','He gets up at 7 o’clock.','get up','7:00'],[9,0,'🏋️','Jamal goes to the gym at 9am.','go to the gym','9:00'],[10,0,'💼','She starts work at 10am.','start work','10:00'],[13,30,'🍽️','She eats lunch at 1:30pm.','eat lunch','1:30'],[16,0,'🏁','We finish work at 4pm.','finish work','4:00'],[20,0,'🍝','They eat dinner at 8pm.','eat dinner','8:00']];
+  $('#timeline').append(...tl.map(t=>h('div',{class:'vcard','data-say':t[3],style:{flex:'0 0 132px',cursor:'pointer'}},h('div',{html:A.clock(t[0],t[1],64),style:{display:'flex',justifyContent:'center'}}),h('div',{class:'e',style:{height:'40px'}},t[2]),h('div',{class:'w'},t[4]),h('div',{class:'m'},t[5]))));
+
+  /* ── 2.1 ── */
+  $('#k21').append(
+    h('div',{class:'exc','data-say':'I eat lunch at 12 o\'clock every day.',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{html:A.clock(12,0,70)}),h('div',{class:'tx',html:'I <b class="hl">eat</b> lunch at 12 o’clock every day.<span class="ko">나는 매일 12시에 점심을 먹어요. (동사원형)</span>'})),
+    h('div',{class:'exc','data-say':'She eats lunch at 1:30pm every day.',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{html:A.clock(13,30,70)}),h('div',{class:'tx',html:'She <b class="hl3">eats</b> lunch at 1:30pm every day.<span class="ko">그녀는 매일 1시 30분에 점심을 먹어요. (+s)</span>'})));
+
+  /* ── 2.2 ── */
+  $('#ex22').append(EFE.excards([
+    {pic:'🏋️',en:'<span class="hl">They go</span> to the gym at 8am.',ko:'그들은 8시에 헬스장에 가요.'},
+    {pic:'🏃',en:'<span class="hl">Jamal goes</span> to the gym at 9am.',ko:'자말은 9시에 헬스장에 가요. (go + es)'},
+    {pic:'📟',en:'<span class="hl">I have</span> a microwave.',ko:'나는 전자레인지가 있어요.'},
+    {pic:'🐶',en:'<span class="hl">She has</span> a dog and a cat.',ko:'그녀는 개와 고양이가 있어요. (have → has)'}]));
+  const vo=$('#verbIn'), vOut=$('#verbOut');
+  function runVerb(){ const v=vo.value.trim(); if(!v){vOut.textContent='';return;} const [r,w]=third(v); vOut.innerHTML=`He / She / It → <b class="hl3">${r}</b> <small class="ko-note">· ${w}</small>`; }
+  $('#verbBtn').addEventListener('click',runVerb); vo.addEventListener('keydown',e=>{if(e.key==='Enter')runVerb();});
+  ['eat','watch','go','have','study','play','wash','get up','finish','fix'].forEach(w=>{const b=h('button',{type:'button'},w);b.addEventListener('click',()=>{vo.value=w;runVerb();});$('#verbQuick').append(b);});
+
+  /* ── 2.3 ── */
+  const VERBS=[['eat','lunch at 1pm every day.'],['work','in an office.'],['go','to the gym at 8am.'],['have','a microwave.'],['watch','TV every night.'],['start','work at 9am.']];
+  EFE.puzzle($('#puz23'),{pieces:[
+    {label:'SUBJECT',opts:[['I / You / We / They','They'],['He / She / It','She']],def:0},
+    {label:'VERB',cls:'t2',opts:VERBS.map(v=>v[0]),def:0,row:true},
+    {label:'REST OF SENTENCE',cls:'g',derive:(t,s)=>VERBS[s[1]||0][1]}],
+    sentence:(t,s)=>{const he=(s[0]||0)===1; const v=VERBS[s[1]||0][0]; return `${t[0]} ${he?third(v)[0]:v} ${t[2]}`;},
+    extra:(t,s)=>{const he=(s[0]||0)===1,v=VERBS[s[1]||0][0]; return he?`<b>${v}</b> → <b class="hl3">${third(v)[0]}</b> · ${third(v)[1]}`:'동사원형 그대로 써요.';}});
+  $('#prep').append(
+    h('div',{class:'exc','data-say':'at 8am, at 5:30pm, at 7 o\'clock',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'tx',html:'<b class="hl">at</b> + 시각<span class="ko">at 8am · at 5:30pm · at 7 o’clock</span>'})),
+    h('div',{class:'exc','data-say':'on Fridays, on Mondays, on the weekend',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'tx',html:'<b class="hl2">on</b> + 요일·주말<span class="ko">on Fridays · on Mondays · on the weekend</span>'})),
+    h('div',{class:'exc','data-say':'in the evening, in the morning',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'tx',html:'<b class="hl3">in</b> + 하루의 때<span class="ko">in the evening · in the morning</span>'})));
+
+  $('#v-rout').append(EFE.vgrid([['⏰','get up','일어나다'],['🚪','leave home','집을 나서다'],['💼','start work','일을 시작하다'],['🏁','finish work','일을 끝내다'],['🍳','eat breakfast','아침을 먹다'],['🥪','eat lunch','점심을 먹다'],['🍝','have dinner','저녁을 먹다'],['🏋️','go to the gym','헬스장에 가다'],['🛍️','go shopping','쇼핑하러 가다'],['📺','watch TV','TV를 보다'],['🌳','walk in the park','공원에서 걷다'],['🍲','cook dinner','저녁을 요리하다'],['🧹','do chores','집안일을 하다'],['🐾','work with animals','동물과 일하다'],['🏊','go swimming','수영하러 가다'],['🏀','like basketball','농구를 좋아하다'],['🍕','like pizza','피자를 좋아하다'],['🏃','like running','달리기를 좋아하다']]));
+
+  /* ── 2.7 ~ 2.9 ── */
+  $('#k27').append(
+    h('div',{class:'exc','data-say':'I do not work outside. I work inside.',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'pic',style:{width:'auto',padding:'0 14px'}},'🏢 ⇄ 🌳'),h('div',{class:'tx',html:'I <b class="hl2">do not work</b> outside.<br>I work inside.<span class="ko">나는 밖에서 일하지 않아요. 안에서 일해요.</span>'})),
+    h('div',{class:'exc','data-say':'He does not work inside. He works outside.',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'pic',style:{width:'auto',padding:'0 14px'}},'🌳 ⇄ 🏢'),h('div',{class:'tx',html:'He <b class="hl2">does not work</b> inside.<br>He works outside.<span class="ko">그는 안에서 일하지 않아요. 밖에서 일해요.</span>'})));
+  $('#ex28').append(EFE.excards([
+    {pic:'🗼',en:'He <b class="hl2">does not live</b> in France.',ko:'그는 프랑스에 살지 않아요.'},
+    {pic:'🏠',en:'This house <b class="hl2">doesn’t have</b> a yard.',ko:'이 집에는 마당이 없어요.'}]));
+  EFE.puzzle($('#puz29'),{pieces:[
+    {label:'SUBJECT',opts:[['I / You / We / They','They'],['He / She / It','She']]},
+    {label:'“DO / DOES” + NOT',cls:'t2',derive:(t,s)=>(s[0]||0)===1?'does not':'do not'},
+    {label:'VERB BASE FORM',cls:'t3',text:'work'},
+    {label:'REST OF SENTENCE',cls:'g',text:'outside.'}],
+    sentence:t=>t.join(' '),
+    extra:(t,s)=>`<b>줄임말</b>: ${t[0]} ${(s[0]||0)===1?'doesn’t':'don’t'} work outside.`});
+  $('#smove').innerHTML=A.svg('0 0 620 170',`<g font-family="sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <rect x="20" y="12" width="110" height="46" rx="12" fill="#f3e9fb" stroke="#7b3fa0" stroke-width="3"/><text x="75" y="43" fill="#7b3fa0">He</text>
+    <rect x="150" y="12" width="150" height="46" rx="12" fill="#fff" stroke="#999" stroke-width="3"/><text x="212" y="43" fill="#222">work<tspan fill="#d4423a">s</tspan></text>
+    <rect x="320" y="12" width="150" height="46" rx="12" fill="#f3f3f3" stroke="#999" stroke-width="3"/><text x="395" y="43" fill="#444">outside.</text>
+    <rect x="20" y="108" width="110" height="46" rx="12" fill="#f3e9fb" stroke="#7b3fa0" stroke-width="3"/><text x="75" y="139" fill="#7b3fa0">He</text>
+    <rect x="150" y="108" width="190" height="46" rx="12" fill="#e0f5f1" stroke="#0a8f7e" stroke-width="3"/><text x="245" y="139" fill="#0a8f7e">doe<tspan fill="#d4423a">s</tspan> not</text>
+    <rect x="360" y="108" width="110" height="46" rx="12" fill="#fff" stroke="#999" stroke-width="3"/><text x="415" y="139" fill="#222">work</text>
+    <path d="M232,64 C232,84 232,92 232,102" stroke="#d4423a" stroke-width="3.5" fill="none" marker-end="url(#am)" stroke-dasharray="7 5"/>
+    <defs><marker id="am" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14Z" fill="#d4423a"/></marker></defs>
+    <text x="540" y="40" font-size="14" fill="#888" font-weight="500">긍정</text><text x="540" y="136" font-size="14" fill="#888" font-weight="500">부정</text></g>`,'the s moves from works to does');
+
+  /* ── 2.11 ~ 2.12 ── */
+  $('#k211').append(
+    h('div',{class:'exc','data-say':'You work in an office. Do you work in an office?',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'tx',html:'You work in an office.<br>↓<br><b class="hl2">Do</b> you work in an office?<span class="ko">I / you / we / they → Do</span>'})),
+    h('div',{class:'exc','data-say':'She works in a school. Does she work in a school?',style:{flexDirection:'column',alignItems:'flex-start'}},h('div',{class:'tx',html:'She works in a school.<br>↓<br><b class="hl2">Does</b> she work in a school?<span class="ko">he / she / it → Does (동사는 work! s 없음)</span>'})));
+  $('#flow211').innerHTML=A.svg('0 0 640 230',`<g font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+    <rect x="215" y="8" width="210" height="44" rx="22" fill="#7b3fa0"/><text x="320" y="36" fill="#fff">질문을 만들고 싶어요</text>
+    <path d="M320,52 V72" stroke="#7b3fa0" stroke-width="3"/>
+    <path d="M320,64 L470,112 L320,160 L170,112Z" fill="#fff" stroke="#7b3fa0" stroke-width="3"/>
+    <text x="320" y="108" fill="#222">주어가 he / she / it</text><text x="320" y="128" fill="#222" font-size="13">(또는 이름 한 명)?</text>
+    <path d="M170,112 H110 V160" stroke="#0a8f7e" stroke-width="3" fill="none"/><text x="140" y="104" fill="#0a8f7e">NO</text>
+    <path d="M470,112 H530 V160" stroke="#d4423a" stroke-width="3" fill="none"/><text x="500" y="104" fill="#d4423a">YES</text>
+    <rect x="10" y="160" width="200" height="60" rx="14" fill="#e0f5f1" stroke="#0a8f7e" stroke-width="3"/><text x="110" y="186" fill="#0a8f7e">Do + 주어 + 동사원형 ?</text><text x="110" y="208" font-size="13" fill="#555" font-weight="500">Do you like pizza?</text>
+    <rect x="430" y="160" width="200" height="60" rx="14" fill="#fde8e6" stroke="#d4423a" stroke-width="3"/><text x="530" y="186" fill="#d4423a">Does + 주어 + 동사원형 ?</text><text x="530" y="208" font-size="13" fill="#555" font-weight="500">Does she like pizza?</text></g>`,'choosing Do or Does');
+  $('#ex212').append(EFE.excards([
+    {pic:'🎡',en:'<b class="hl2">Do they live</b> in London?',ko:'그들은 런던에 살아요?'},
+    {pic:'🛌',en:'<b class="hl2">Does Tom get up</b> at 7am?',ko:'톰은 7시에 일어나요?'},
+    {pic:'🧥',en:'<b class="hl2">Do I need</b> a new coat?',ko:'제가 새 코트가 필요한가요?'},
+    {pic:'🏊',en:'<b class="hl2">Does she go</b> swimming?',ko:'그녀는 수영하러 가요?'}]));
+
+  /* ═════════ 연습문제 ═════════ */
+  EFE.def('2.4',{type:'choice',en:'CROSS OUT THE INCORRECT WORD IN EACH SENTENCE',ko:'각 문장에서 틀린 단어를 클릭해 줄을 그으세요.',
+    tip:'주어가 he / she / it(또는 이름 한 명)이면 동사에 -s 를 붙여요. I / you / we / they(복수)는 동사원형!',
+    example:{pre:'She ',opts:['eat','eats'],post:' dinner in the evening.',ans:1},
+    items:[{pre:'He ',opts:['wake up','wakes up'],post:' at 7 o’clock.',ans:1},{pre:'I ',opts:['start','starts'],post:' work at 10am.',ans:0},
+      {pre:'They ',opts:['leave','leaves'],post:' home at 8:45am.',ans:0},{pre:'We ',opts:['finish','finishes'],post:' work at 4pm.',ans:0},
+      {pre:'My friend ',opts:['has','have'],post:' dinner at 6:30pm.',ans:0},{pre:'I ',opts:['cook','cooks'],post:' dinner every night.',ans:0},
+      {pre:'My parents ',opts:['eat','eats'],post:' lunch at 2pm.',ans:0},{pre:'Mia ',opts:['get','gets'],post:' up at 5 o’clock.',ans:1},
+      {pre:'My cousin ',opts:['work','works'],post:' with animals.',ans:1}]});
+
+  EFE.def('2.5',{type:'fill',en:'FILL IN THE GAPS USING THE WORDS IN THE PANEL',ko:'보기 단어를 사용해 빈칸을 채우세요. (보기 단어를 눌러도 돼요)',
+    tip:'we / they / I → 동사원형 · 한 명(Pam, his son, my brother) → 동사 + s. 보기 중 “goes to”, “leaves”, “eats” 가 -s 형태예요.',
+    bank:[{t:'gets up',ex:true},'walk','goes to','leaves','eat','eats','leave'],
+    example:{pic:'🛏️',segs:['Michael ',{a:['gets up'],w:120},' at 7:30am.']},
+    items:[{pic:'🚪',segs:['We ',{a:['leave'],w:120},' work at 5:30pm.']},{pic:'🥗',segs:['Pam ',{a:['eats'],w:120},' lunch at 1:30pm.']},
+      {pic:'🌳',segs:['We ',{a:['walk'],w:120},' in the park.']},{pic:'🚌',segs:['His son ',{a:['goes to'],w:120},' work at 9am.']},
+      {pic:'🕓',segs:['My brother ',{a:['leaves'],w:120},' work at 4:45pm.']},{pic:'🍝',segs:['They ',{a:['eat'],w:120},' dinner at 8pm.']}]});
+
+  EFE.def('2.6',{type:'fill',say:true,en:'SAY THE SENTENCES OUT LOUD, FILLING IN THE GAPS',ko:'괄호 안의 동사를 알맞은 형태로 바꿔 빈칸에 쓰세요. 맞으면 나타나는 🔊 를 눌러 듣고 소리 내어 말해 보세요.',
+    tip:'Sonia·My son·He·My cousin·Georgia = 한 명 → -s / -es (watch → watches, go → goes). We·They → 동사원형. do 는 they 와 쓰므로 그대로!',
+    example:{segs:['Sonia ',{a:['goes'],w:110},' ',{t:'(go)',cls:'ph'},' to work early.']},
+    items:[{segs:['My son ',{a:['watches'],w:110},' ',{t:'(watch)',cls:'ph'},' TV all night.']},{segs:['He ',{a:['goes'],w:110},' ',{t:'(go)',cls:'ph'},' shopping on Fridays.']},
+      {segs:['We ',{a:['eat'],w:110},' ',{t:'(eat)',cls:'ph'},' breakfast at 7am.']},{segs:['My cousin ',{a:['works'],w:110},' ',{t:'(work)',cls:'ph'},' inside.']},
+      {segs:['Georgia ',{a:['starts'],w:110},' ',{t:'(start)',cls:'ph'},' work at 9am.']},{segs:['They ',{a:['do'],w:110},' ',{t:'(do)',cls:'ph'},' their chores.']}]});
+
+  EFE.def('2.10',{type:'grid',en:'FILL IN THE GAPS TO WRITE EACH SENTENCE THREE DIFFERENT WAYS',ko:'각 문장을 3가지 방식(긍정 / 줄임말 없는 부정 / 줄임말 부정)으로 쓰세요. 줄임말 칸에는 don’t / doesn’t 를 쓰세요.',
+    tip:'가운데 칸 = do not / does not (줄임말 없이), 오른쪽 칸 = don’t / doesn’t (줄임말). 부정문의 동사는 원형이에요!',
+    cols:['긍정문 Statement','부정문 (줄임말 없이)','부정문 (줄임말)'],
+    example:['He gets up at 5am.','He does not get up at 5am.',"He doesn’t get up at 5am."],
+    rows:[[{a:['I go to work every day.']},{a:['I do not go to work every day.'],x:true},"I don’t go to work every day."],
+      [{a:['He watches TV in the evening.']},'He does not watch TV in the evening.',{a:["He doesn't watch TV in the evening."],x:true}],
+      ['They work in an office.',{a:['They do not work in an office.'],x:true},{a:["They don't work in an office."],x:true}]]});
+
+  EFE.def('2.13',{type:'builder',en:'USE THE CHARTS TO CREATE 12 CORRECT SENTENCES AND SAY THEM OUT LOUD',ko:'두 개의 표에서 알맞게 골라 올바른 문장 12개(질문 6 + 부정문 6)를 만들고 소리 내어 말해 보세요.',
+    charts:[
+      {title:'표 ① 질문 만들기 (6문장)',target:6,cols:[{hint:'Do you / Does he',opts:['Do you','Does he']},{hint:'동사',opts:['like'],lock:true},{hint:'무엇을?',opts:['basketball?','running?','pizza?']}],
+        join:p=>p.join(' '),valid:()=>true},
+      {title:'표 ② 부정문 만들기 (6문장)',target:6,cols:[{hint:'주어',opts:['I','My sister','They']},{hint:'don’t / doesn’t',opts:["don't","doesn't"]},{hint:'동사',opts:['work'],lock:true},{hint:'언제?',opts:['on the weekend.','on Mondays.']}],
+        join:p=>p.join(' '),
+        valid:p=>{const need=p[0]==='My sister'?"doesn't":"don't"; return p[1]===need?true:`${p[0]} 에는 “${need}” 를 써요 (I / They → don’t, My sister(한 명) → doesn’t).`;}}]});
+
+  EFE.checklist($('#checklist'),['The present simple','Routines and pastimes','Talking about routines']);
+  EFE.go();
+})();
+</script>
+</body>
+</html>
