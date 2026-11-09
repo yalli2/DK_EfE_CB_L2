@@ -29,7 +29,17 @@
     { n: 2, en: 'Talking about routines', ko: '일상과 습관 말하기', pages: '16–19' },
     { n: 3, en: 'Today I’m wearing…', ko: '지금 입고 있는 것·하고 있는 일 말하기', pages: '20–23' },
     { n: 4, en: 'What’s happening?', ko: '지금 무슨 일이 일어나는지 묻기', pages: '24–27' },
-    { n: 5, en: 'Types of verbs', ko: '동사의 종류: 동작동사와 상태동사', pages: '28–29' }
+    { n: 5, en: 'Types of verbs', ko: '동사의 종류: 동작동사와 상태동사', pages: '28–29' },
+    { n: 6, en: 'Vocabulary: Feelings and moods', ko: '어휘: 감정과 기분', pages: '30–31' },
+    { n: 7, en: 'How are you feeling?', ko: '기분과 감정 말하기', pages: '32–35' },
+    { n: 8, en: 'Vocabulary: Transportation', ko: '어휘: 교통수단', pages: '36–37' },
+    { n: 9, en: 'Routines and exceptions', ko: '평소 습관과 예외 대조하기', pages: '38–41' },
+    { n: 10, en: 'Vocabulary: The body', ko: '어휘: 신체', pages: '42–43' },
+    { n: 11, en: 'What’s the matter?', ko: '아픈 곳 말하기', pages: '44–45' },
+    { n: 12, en: 'Vocabulary: Weather', ko: '어휘: 날씨', pages: '46–47' },
+    { n: 13, en: 'What’s the weather like?', ko: '날씨 묘사하기', pages: '48–51' },
+    { n: 14, en: 'Vocabulary: Travel', ko: '어휘: 여행', pages: '52–53' },
+    { n: 15, en: 'Making comparisons', ko: '비교급으로 비교하기', pages: '54–57' }
   ];
   EFE.UNITS = UNITS;
 
@@ -707,5 +717,8 @@
     }
     EFE.refresh();
   };
+  EFE.TYPES = TYPES;          // 단원 페이지에서 새 유형을 추가할 때 사용
+  EFE.audioBar = audioBar;
+  EFE.toast = toast;
   global.EFE = EFE;
 })(window);

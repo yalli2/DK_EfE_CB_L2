@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 8 · Vocabulary: Transportation</title>
+<meta name="description" content="English for Everyone Level 2 · Unit 8 — 교통수단 어휘: 탈것, 교통 장소, 이동 동사, 자동차 부품. 그림 단어장과 추가 연습문제">
+<link rel="stylesheet" href="../shared/efe.css">
+</head>
+<body data-unit="8">
+<main class="wrap" id="flow">
+
+<section class="mod lesson" id="m8-0" data-label="미리보기">
+  <div class="mod-head"><span class="n">★</span><h2><span class="k">OVERVIEW</span> 교통수단 어휘 한눈에 보기<small>탈것 · 장소 · 이동 표현 · 자동차 부품</small></h2></div>
+  <div class="mod-body">
+    <p class="lead">이 단원은 <b>교통(transportation)</b> 에 관한 단어장이에요. 단어를 <b>네 묶음</b>으로 나눠 익히고, 미국식(US)과 영국식(UK) 표현의 차이도 알아봐요.</p>
+    <div class="grid3" id="ocards"></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m8-1" data-label="8.1">
+  <div class="mod-head"><span class="n">8.1</span><h2><span class="k">VOCABULARY</span> TRANSPORTATION<small>교통수단 — 카드를 누르면 발음을 들려줘요</small></h2></div>
+  <div class="mod-body">
+    <h3 style="margin:4px 0 6px">🚗 땅 위의 탈것 (on land)</h3><div id="v-land"></div>
+    <h3 style="margin:18px 0 6px">✈️ 하늘 · 물 위의 탈것 (in the air / on water)</h3><div id="v-airsea"></div>
+    <h3 style="margin:18px 0 6px">📍 장소 (places)</h3><div id="v-place"></div>
+    <h3 style="margin:18px 0 6px">🏃 이동 표현 · 요금 (ways to travel)</h3><div id="v-verb"></div>
+    <h3 style="margin:18px 0 6px">🔧 자동차 부품 (parts of a car)</h3>
+    <div class="diagram"><div id="carsvg"></div><div class="cap">자동차 각 부분의 이름 — 라벨을 누르면 소리가 나요</div></div>
+    <div id="v-parts"></div>
+    <div class="tip"><b>💡 US vs UK</b> 같은 물건도 미국과 영국에서 다르게 불러요. 이 교재는 미국 영어(US)가 기준이에요.</div>
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>뜻</th><th>🇺🇸 US</th><th>🇬🇧 UK</th></tr></thead>
+      <tbody>
+        <tr><td>오토바이</td><td>motorcycle</td><td>motorbike</td></tr>
+        <tr><td>철로</td><td>railroad tracks</td><td>railway line</td></tr>
+        <tr><td>타이어</td><td>tires</td><td>tyres</td></tr>
+        <tr><td>(차) 트렁크</td><td>trunk</td><td>boot</td></tr>
+        <tr><td>(차) 보닛</td><td>hood</td><td>bonnet</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<div data-ex="8.A"></div>
+<div data-ex="8.B"></div>
+<div data-ex="8.C"></div>
+<div data-ex="8.D"></div>
+
+<section class="mod lesson" id="m8-s" data-label="총정리">
+  <div class="mod-head"><span class="n">📌</span><h2><span class="k">SUMMARY</span> Unit 8 총정리 표<small>교통 어휘 정리</small></h2></div>
+  <div class="mod-body">
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>묶음</th><th>단어</th></tr></thead>
+      <tbody>
+        <tr><td class="k">땅 위</td><td>car · taxi · bus · coach · train · tram · motorcycle · bicycle</td></tr>
+        <tr><td class="k">하늘 · 물 위</td><td>plane · helicopter · boat · yacht · ship</td></tr>
+        <tr><td class="k">장소</td><td>bus stop · train station · taxi rank · airport · port · road · railroad tracks</td></tr>
+        <tr><td class="k">이동 · 요금</td><td>walk · ride a bike · fly a plane · drive a car · ticket · fare</td></tr>
+        <tr><td class="k">자동차 부품</td><td>steering wheel · tires · trunk · hood · engine · headlights · wheels</td></tr>
+        <tr><td class="k">동사 짝꿍</td><td><b>ride</b> a bike / a motorcycle · <b>drive</b> a car / a bus · <b>fly</b> a plane · <b>take</b> a taxi / a train</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<div id="checklist"></div>
+</main>
+
+<script src="../shared/art.js"></script>
+<script src="../shared/efe.js"></script>
+<script>
+(function(){
+  const {h,$,$$}=EFE, A=ART;
+  EFE.chrome({unit:8,
+    intro:'자동차·버스·기차·배 같은 교통수단과 공항·정류장 같은 장소, 자동차 부품 이름을 익혀요.',
+    goals:[['Vocabulary','Transportation','교통수단'],['Vocabulary','Places & travel verbs','교통 장소와 이동 표현'],['Vocabulary','Parts of a car','자동차 부품']]});
+
+  const wheel=()=>A.svg('0 0 64 64','<circle cx="32" cy="32" r="26" fill="none" stroke="#2b2b2b" stroke-width="7"/><circle cx="32" cy="32" r="7" fill="#2b2b2b"/><path d="M8,30 Q32,22 56,30 M32,39 V58" stroke="#2b2b2b" stroke-width="7" fill="none"/>','steering wheel');
+  const tracks=()=>A.svg('0 0 64 64','<path d="M22,2 V62 M42,2 V62" stroke="#666" stroke-width="4"/>'+[6,16,26,36,46,56].map(y=>`<rect x="14" y="${y}" width="36" height="5" fill="#8a5a33"/>`).join(''),'railroad tracks');
+
+  $('#ocards').append(EFE.excards([
+    {pic:'🚌',en:'<b class="hl">bus · train · ship</b>',ko:'탈것 이름 익히기'},
+    {pic:'🚏',en:'<b class="hl">bus stop · airport</b>',ko:'교통 장소 이름'},
+    {pic:'🇺🇸🇬🇧',en:'<b class="hl">trunk = boot</b>',ko:'미국식 vs 영국식 단어'}]));
+
+  $('#v-land').append(EFE.vgrid([['🚗','car','자동차','a car'],['🚕','taxi','택시','a taxi'],['🚌','bus','버스','a bus'],['🚍','coach','(장거리) 고속버스','a coach'],['🚆','train','기차','a train'],['🚋','tram','노면 전차','a tram'],['🏍️','motorcycle','오토바이 (UK motorbike)','a motorcycle. A motorbike.'],['🚲','bicycle','자전거','a bicycle']]));
+  $('#v-airsea').append(EFE.vgrid([['✈️','plane','비행기','a plane'],['🚁','helicopter','헬리콥터','a helicopter'],['🚤','boat','보트 · 배','a boat'],['⛵','yacht','요트','a yacht'],['🚢','ship','(큰) 배 · 선박','a ship']]));
+  $('#v-place').append(EFE.vgrid([['🚏','bus stop','버스 정류장','a bus stop'],['🚉','train station','기차역','a train station'],['🚖','taxi rank','택시 승강장','a taxi rank'],['🛫','airport','공항','an airport'],['⚓','port','항구','a port'],['🛣️','road','도로','a road'],[tracks(),'railroad tracks','철로 (UK railway line)','railroad tracks. Railway line.']]));
+  $('#v-verb').append(EFE.vgrid([['🚶','walk','걷다 · 걸어가다'],['🚴','ride a bike','자전거를 타다'],['🛩️','fly a plane','비행기를 조종하다'],['🚘','drive a car','차를 운전하다'],['🎫','ticket','표 · 승차권','a ticket'],['🪙','fare','(교통) 요금','the fare']]));
+
+  /* ── 자동차 부품 그림 ── */
+  const lab=(x,y,tx,ty,t,anc)=>`<path d="M${x},${y} L${tx},${ty}" stroke="#e8710a" stroke-width="2"/><circle cx="${x}" cy="${y}" r="4" fill="#e8710a"/><text x="${tx+(anc==='end'?-4:4)}" y="${ty+5}" text-anchor="${anc||'start'}" font-size="17" font-weight="700" fill="#e8710a" data-say="${t.split(' (')[0]}" style="cursor:pointer">${t}</text>`;
+  $('#carsvg').innerHTML=A.svg('-20 0 660 260',`<g font-family="sans-serif">
+    <path d="M150,190 L150,140 Q152,120 175,115 L215,80 Q225,72 245,72 L360,72 Q378,72 392,86 L420,115 L470,120 Q500,124 500,150 L500,190 Z" fill="#0d9a86"/>
+    <path d="M225,88 L250,84 L300,84 L300,115 L205,115Z M310,84 L360,84 Q372,84 382,96 L398,115 L310,115Z" fill="#cfeff0"/>
+    <path d="M420,118 L470,40" stroke="#0d9a86" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="215" cy="192" r="30" fill="#222"/><circle cx="215" cy="192" r="12" fill="#bbb"/>
+    <circle cx="430" cy="192" r="30" fill="#222"/><circle cx="430" cy="192" r="12" fill="#bbb"/>
+    <rect x="482" y="140" width="18" height="12" rx="4" fill="#ffe14a"/>
+    <rect x="440" y="122" width="30" height="16" rx="3" fill="#6b7280"/>`+
+    lab(160,140,150,40,'trunk (UK boot)','end')+lab(455,70,470,20,'hood (UK bonnet)')+lab(455,130,540,105,'engine')+lab(498,146,540,160,'headlights')+lab(215,192,110,240,'wheels','end')+`</g>`,'parts of a car: trunk, hood, engine, headlights, wheels');
+  $('#v-parts').append(EFE.vgrid([[wheel(),'steering wheel','(자동차) 핸들','a steering wheel'],['🛞','tires','타이어 (UK tyres)','tires. Tyres.'],['🧳','trunk','트렁크 (UK boot)','the trunk. The boot.'],['🔼','hood','보닛 (UK bonnet)','the hood. The bonnet.'],['⚙️','engine','엔진','the engine'],['💡','headlights','전조등 · 헤드라이트','the headlights'],['⭕','wheels','바퀴','the wheels']]));
+
+  /* ═════════ 추가 연습문제 (교재 외) ═════════ */
+  const em=e=>A.svg('0 0 120 90',`<rect width="120" height="90" rx="10" fill="#eef4ff"/><text x="60" y="64" font-size="54" text-anchor="middle">${e}</text>`,'picture');
+  const NAMES=['bus','coach','helicopter','ship','tram','yacht','motorcycle','train station','airport','taxi rank'];
+  EFE.def('8.A',{type:'imgselect',en:'LOOK AT THE PICTURES AND CHOOSE THE CORRECT WORDS',ko:'추가 연습 (교재 외) — 그림을 보고 알맞은 단어를 고르세요.',
+    tip:'coach 는 장거리 고속버스, tram 은 도로 위 레일을 달리는 전차, yacht 는 돛이 달린 요트예요.',
+    names:NAMES,
+    example:{svg:em('🚕'),ans:'taxi'},
+    cards:[{svg:em('🚁'),ans:'helicopter'},{svg:em('🚋'),ans:'tram'},{svg:em('⛵'),ans:'yacht'},{svg:em('🚢'),ans:'ship'},{svg:em('🏍️'),ans:'motorcycle'},{svg:em('🛫'),ans:'airport'},{svg:em('🚉'),ans:'train station'},{svg:em('🚌'),ans:'bus'}]});
+
+  EFE.def('8.B',{type:'match',en:'MATCH THE US WORDS TO THE UK WORDS',ko:'추가 연습 (교재 외) — 왼쪽 미국식(US) 단어를 먼저 누르고, 같은 뜻의 영국식(UK) 단어를 오른쪽에서 눌러 연결하세요.',
+    tip:'motorcycle = motorbike · railroad tracks = railway line · tires = tyres · trunk = boot · hood = bonnet',
+    left:['trunk','tires','motorcycle','hood','railroad tracks'],
+    right:['bonnet','railway line','boot','motorbike','tyres'],
+    ans:[2,4,3,0,1]});
+
+  EFE.def('8.C',{type:'fill',en:'FILL IN THE GAPS USING THE WORDS IN THE PANEL',ko:'추가 연습 (교재 외) — 보기에서 알맞은 단어를 골라 빈칸을 채우세요.',
+    tip:'버스를 기다리는 곳 → bus stop, 비행기를 타는 곳 → airport, 표 값 → fare, 운전할 때 잡는 것 → steering wheel, 밤에 켜는 불 → headlights.',
+    bank:['ticket','airport','fare','steering wheel','headlights','ride','port',{t:'bus stop',ex:true}],
+    example:{pic:'🚏',segs:['I’m waiting for the bus at the ',{a:['bus stop'],w:140},'.']},
+    items:[{pic:'🛫',segs:['Our plane leaves at 9am, so we need to be at the ',{a:['airport'],w:140},' at 7am.']},
+      {pic:'🎫',segs:['You need a ',{a:['ticket'],w:140},' to get on the train.']},
+      {pic:'🪙',segs:['The bus ',{a:['fare'],w:140},' is two dollars.']},
+      {pic:'🚴',segs:['I ',{a:['ride'],w:140},' my bike to school every day.']},
+      {pic:'🚢',segs:['The big ships are in the ',{a:['port'],w:140},'.']},
+      {pic:wheel(),segs:['Hold the ',{a:['steering wheel'],w:160},' with both hands when you drive.']},
+      {pic:'💡',segs:['It’s dark. Turn on the car’s ',{a:['headlights'],w:140},'.']}]});
+
+  EFE.def('8.D',{type:'mcq',en:'LISTEN TO THE AUDIO AND MARK HOW EACH PERSON TRAVELS',ko:'추가 연습 (교재 외) — 듣고 각 사람이 무엇을 타고 이동하는지 고르세요. 먼저 ▶ 를 눌러 들어 보세요.',
+    tip:'핵심 단어를 들어 보세요: ride a bike, drive, take a taxi, coach, ship, helicopter.',
+    audio:{lines:['Hi, I’m Lena. I walk to school every day.','One. I’m Tom. I ride my bike to work.','Two. I’m Mia. I go to the airport by taxi.','Three. I’m Sam. I take the coach to visit my grandma. It’s a long journey.','Four. I’m Ben. I drive my car to the office.','Five. I’m Ana. I travel to the island by ship.','Six. I’m Raj. I fly a helicopter for my job.']},
+    example:{q:'Lena',opts:['🚶 walks','🚲 rides a bike','🚗 drives a car'],ans:0,say:'I walk to school every day.'},
+    items:[{q:'1. Tom',opts:['🚌 takes the bus','🚲 rides a bike','🚋 takes the tram'],ans:1,say:'I ride my bike to work.'},
+      {q:'2. Mia',opts:['🚕 takes a taxi','✈️ takes a plane','🚆 takes the train'],ans:0,say:'I go to the airport by taxi.'},
+      {q:'3. Sam',opts:['🚍 takes the coach','🏍️ rides a motorcycle','🚤 takes a boat'],ans:0,say:'I take the coach to visit my grandma.'},
+      {q:'4. Ben',opts:['🚶 walks','🚗 drives a car','🚌 takes the bus'],ans:1,say:'I drive my car to the office.'},
+      {q:'5. Ana',opts:['⛵ sails a yacht','🚢 takes a ship','🚁 takes a helicopter'],ans:1,say:'I travel to the island by ship.'},
+      {q:'6. Raj',opts:['🛩️ flies a plane','🚁 flies a helicopter','🚆 drives a train'],ans:1,say:'I fly a helicopter for my job.'}]});
+
+  EFE.checklist($('#checklist'),['Transportation (vehicles)','Places to travel from','Parts of a car (US / UK)']);
+  EFE.go();
+})();
+</script>
+</body>
+</html>

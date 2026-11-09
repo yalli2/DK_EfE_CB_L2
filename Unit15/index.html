@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 15 · Making comparisons</title>
+<meta name="description" content="English for Everyone Level 2 · Unit 15 — 비교급: -er than, more ~ than. 비교급 만드는 규칙, 도표 설명과 모든 연습문제 풀이">
+<link rel="stylesheet" href="../shared/efe.css">
+<style>
+.former{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.former button{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:5px 13px;font-weight:700;font-size:15px;cursor:pointer;color:var(--ink)}
+.former button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.fout{display:grid;grid-template-columns:auto auto auto;gap:6px 14px;align-items:center;justify-content:center;background:var(--accent-soft);border-radius:14px;padding:14px;margin:8px 0;text-align:center}
+.fout .w{font-size:clamp(24px,4vw,34px);font-weight:800}
+.fout .ar{font-size:26px;color:var(--accent)}
+.fout .rule{grid-column:1/-1;font-size:15px;color:var(--muted)}
+.fout .sent{grid-column:1/-1;font-size:20px;font-weight:600}
+.ws2{display:grid;gap:3px;justify-content:center;margin:8px 0;user-select:none}
+.ws2 button{width:34px;height:34px;border:1px solid var(--line);background:var(--card);border-radius:7px;font-weight:800;font-size:16px;color:var(--ink);cursor:pointer;padding:0}
+.ws2 button.start{outline:3px solid var(--warn)}
+.ws2 button.hit{color:#fff}
+.ws2wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.ws2wrap>div{flex:1;min-width:260px}
+.ws2found{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.ws2found span{border-radius:99px;padding:2px 10px;color:#fff;font-weight:700;font-size:14px}
+@media(max-width:480px){.ws2 button{width:26px;height:26px;font-size:13px}}
+</style>
+</head>
+<body data-unit="15">
+<main class="wrap" id="flow">
+
+<section class="mod lesson" id="m15-0" data-label="미리보기">
+  <div class="mod-head"><span class="n">★</span><h2><span class="k">OVERVIEW</span> 비교급 한눈에 보기<small>두 가지를 비교할 때: 비교급 + than</small></h2></div>
+  <div class="mod-body">
+    <p class="lead">두 사람 · 장소 · 물건을 비교할 때는 <b class="hl">비교급 형용사</b>를 쓰고, 그 뒤에 <b class="hl">than</b>(~보다)을 붙여요.</p>
+    <div class="diagram"><div id="ovsvg"></div><div class="cap">짧은 형용사 → -er than / 긴 형용사 → more ~ than</div></div>
+    <div class="grid3" id="ocards"></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m15-1" data-label="15.1">
+  <div class="mod-head"><span class="n">15.1</span><h2><span class="k">KEY LANGUAGE</span> COMPARATIVE ADJECTIVES<small>비교급 형용사</small></h2></div>
+  <div class="mod-body">
+    <p>1~2음절 형용사는 대부분 끝에 <b>-er</b> 를 붙여 비교급을 만들어요. 비교하는 대상 앞에는 <b>than</b> 을 써요.</p>
+    <div class="brow"><div class="fg" style="font-size:80px;text-align:center">🏖️</div>
+      <div><div class="bubble" data-say="Greece is warm." style="margin-bottom:22px">Greece is <b>warm</b>.</div><br>
+      <div class="bubble" data-say="Greece is warmer than France.">Greece is <b>warm<span class="hl3">er</span></b> <span class="hl2">than</span> France.</div></div></div>
+    <div class="grid2">
+      <div class="note"><b>① -er</b> 형용사 끝에 -er 를 붙여 비교급을 만들어요. <span class="en">warm → warmer</span></div>
+      <div class="note"><b>② than</b> 비교급 뒤에 than 을 써요. <span class="en">warmer than France</span> (프랑스보다 더 따뜻한)</div>
+    </div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m15-2" data-label="15.2">
+  <div class="mod-head"><span class="n">15.2</span><h2><span class="k">FURTHER EXAMPLES</span> COMPARATIVE ADJECTIVES<small>더 많은 예문 — 카드를 누르면 소리가 나요</small></h2></div>
+  <div class="mod-body"><div id="ex152"></div></div>
+</section>
+
+<section class="mod lesson" id="m15-3" data-label="15.3">
+  <div class="mod-head"><span class="n">15.3</span><h2><span class="k">KEY LANGUAGE</span> FORMING COMPARATIVES<small>비교급 만드는 규칙 — e, y, 자음으로 끝나는 형용사</small></h2></div>
+  <div class="mod-body">
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>형용사 끝</th><th>규칙</th><th>예</th></tr></thead>
+      <tbody>
+        <tr><td><b>대부분</b></td><td><b class="hl3">-er</b> 을 붙여요</td><td data-say="fast, faster">fast → fast<b class="hl3">er</b></td></tr>
+        <tr><td><b>-e</b> 로 끝남</td><td><b class="hl3">-r</b> 만 붙여요</td><td data-say="close, closer">close → close<b class="hl3">r</b></td></tr>
+        <tr><td><b>자음 + y</b></td><td>y 를 빼고 <b class="hl3">-ier</b></td><td data-say="early, earlier">early → earl<b class="hl3">ier</b></td></tr>
+        <tr><td><b>자음 + 모음 + 자음</b> (1음절)</td><td>마지막 자음을 <b>한 번 더</b> 쓰고 <b class="hl3">-er</b></td><td data-say="big, bigger">big → bi<b class="hl3">gger</b></td></tr>
+      </tbody></table></div>
+    <h3 style="margin:22px 0 6px">🧪 비교급 만들기 실험실 — 형용사를 눌러 보세요</h3>
+    <div class="former" id="former"></div>
+    <div class="fout" id="fout"></div>
+  </div>
+</section>
+
+<div data-ex="15.4"></div>
+<div data-ex="15.5"></div>
+
+<section class="mod lesson" id="m15-6" data-label="15.6">
+  <div class="mod-head"><span class="n">15.6</span><h2><span class="k">KEY LANGUAGE</span> COMPARATIVES WITH LONG ADJECTIVES<small>긴 형용사의 비교급</small></h2></div>
+  <div class="mod-body">
+    <p>일부 2음절 형용사와 <b>3음절 이상</b>의 긴 형용사는 -er 를 붙이지 않고, 앞에 <b class="hl">more</b>, 뒤에 <b class="hl2">than</b> 을 써요.</p>
+    <div class="brow"><div class="fg" style="font-size:80px;text-align:center">🏝️</div>
+      <div><div class="bubble" data-say="This beach is beautiful." style="margin-bottom:22px">This beach is <b>beautiful</b>.</div><br>
+      <div class="bubble" data-say="This beach is more beautiful than that one.">This beach is <span class="hl3">more</span> <b>beautiful</b> <span class="hl2">than</span> that one.</div></div></div>
+    <div class="grid2">
+      <div class="note"><b>🔢 음절 세기</b> beau · ti · ful → 3음절이라 <span class="en">more beautiful</span> (✘ beautifuller)</div>
+      <div class="note"><b>👉 that one</b> 앞에 나온 명사(beach)를 반복하지 않고 <span class="en">that one</span>(저것)으로 바꿔 말해요.</div>
+    </div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m15-7" data-label="15.7">
+  <div class="mod-head"><span class="n">15.7</span><h2><span class="k">HOW TO FORM</span> COMPARATIVES WITH LONG ADJECTIVES<small>퍼즐 조각을 바꿔 문장을 만들어 보세요</small></h2></div>
+  <div class="mod-body"><div id="puz157"></div></div>
+</section>
+
+<section class="mod lesson" id="m15-8" data-label="15.8">
+  <div class="mod-head"><span class="n">15.8</span><h2><span class="k">FURTHER EXAMPLES</span> COMPARATIVES WITH LONG ADJECTIVES<small>더 많은 예문</small></h2></div>
+  <div class="mod-body"><div id="ex158"></div></div>
+</section>
+
+<div data-ex="15.9"></div>
+<div data-ex="15.10"></div>
+<div data-ex="15.11"></div>
+<div data-ex="15.12"></div>
+
+<section class="mod lesson" id="m15-s" data-label="총정리">
+  <div class="mod-head"><span class="n">📌</span><h2><span class="k">SUMMARY</span> Unit 15 총정리 표<small>비교급 만들기</small></h2></div>
+  <div class="mod-body">
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>형용사</th><th>만드는 법</th><th>예</th></tr></thead>
+      <tbody>
+        <tr><td class="k">짧은 형용사</td><td>+ er</td><td>warm → warmer · fast → faster · tall → taller</td></tr>
+        <tr><td class="k">-e 로 끝남</td><td>+ r</td><td>close → closer · large → larger · late → later</td></tr>
+        <tr><td class="k">자음 + y</td><td>y → ier</td><td>early → earlier · easy → easier</td></tr>
+        <tr><td class="k">자음+모음+자음</td><td>자음 두 번 + er</td><td>big → bigger · hot → hotter · thin → thinner</td></tr>
+        <tr><td class="k">긴 형용사</td><td>more + 형용사</td><td>more beautiful · more expensive · more difficult · more exciting</td></tr>
+        <tr><td class="k">문장</td><td>A + be + 비교급 + than + B</td><td>A plane is faster than a train. / Gold is more expensive than silver.</td></tr>
+      </tbody></table></div>
+    <div class="tip"><b>⚠️ 둘 다 쓰지 마세요</b> <span class="en">more bigger</span> ✘ → <span class="en">bigger</span> ✔ · <span class="en">beautifuller</span> ✘ → <span class="en">more beautiful</span> ✔</div>
+  </div>
+</section>
+
+<div id="checklist"></div>
+</main>
+
+<script src="../shared/art.js"></script>
+<script src="../shared/efe.js"></script>
+<script>
+(function(){
+  const {h,$,$$}=EFE, A=ART;
+  EFE.chrome({unit:15,
+    intro:'비교급 형용사(-er than, more ~ than)로 사람 · 장소 · 물건을 비교해요.',
+    goals:[['New language','Comparative adjectives','비교급 형용사'],['Vocabulary','Travel and countries','여행과 나라'],['New skill','Comparing things','두 가지 비교하기']]});
+
+  /* ── 한눈에 ── */
+  $('#ovsvg').innerHTML=A.svg('0 0 640 220',`<g font-family="sans-serif" font-weight="700" text-anchor="middle">
+    <rect x="10" y="10" width="300" height="200" rx="16" fill="#e2f5f1" stroke="#0d8a7a" stroke-width="3"/>
+    <rect x="330" y="10" width="300" height="200" rx="16" fill="#f4eafa" stroke="#7b3fa0" stroke-width="3"/>
+    <text x="160" y="42" font-size="18" fill="#0d8a7a">SHORT 짧은 형용사</text>
+    <text x="480" y="42" font-size="18" fill="#7b3fa0">LONG 긴 형용사</text>
+    <text x="160" y="70" font-size="13" fill="#0d8a7a" font-weight="500">1음절 · 대부분의 2음절</text><text x="480" y="70" font-size="13" fill="#7b3fa0" font-weight="500">일부 2음절 · 3음절 이상</text>
+    <text x="160" y="112" font-size="24" fill="#444">warm → warm<tspan fill="#c0392b">er</tspan></text>
+    <text x="160" y="150" font-size="18" fill="#444">Greece is warm<tspan fill="#c0392b">er</tspan> <tspan fill="#0d8a7a">than</tspan> France.</text>
+    <text x="480" y="112" font-size="22" fill="#444"><tspan fill="#c0392b">more</tspan> beautiful</text>
+    <text x="480" y="150" font-size="16" fill="#444">This beach is <tspan fill="#c0392b">more</tspan> beautiful <tspan fill="#7b3fa0">than</tspan> …</text>
+    <text x="160" y="188" font-size="14" fill="#0d8a7a" font-weight="500">faster · closer · earlier · bigger</text>
+    <text x="480" y="188" font-size="14" fill="#7b3fa0" font-weight="500">more expensive · more difficult</text></g>`,'short adjectives add er, long adjectives use more');
+  $('#ocards').append(EFE.excards([
+    {pic:'📏',en:'tall → <b class="hl">taller than</b>',ko:'짧은 형용사: -er + than'},{pic:'💎',en:'expensive → <b class="hl">more expensive than</b>',ko:'긴 형용사: more + 형용사 + than'},{pic:'🐘',en:'big → <b class="hl">bigger</b>',ko:'자음+모음+자음은 자음을 한 번 더'}]));
+
+  /* ── 15.2 ── */
+  $('#ex152').append(EFE.excards([
+    {pic:'🧍‍♂️🧍',en:'Ahmed is <b class="hl">taller than</b> Jonathan.',ko:'아메드는 조나단보다 키가 커요. (tall → taller)'},
+    {pic:'✈️🚆',en:'A plane is <b class="hl">faster than</b> a train.',ko:'비행기는 기차보다 빨라요. (fast → faster)'},
+    {pic:'🌡️',en:'5°F is <b class="hl">colder than</b> 85°F.',ko:'화씨 5도는 화씨 85도보다 추워요. (cold → colder)'},
+    {pic:'👦👩',en:'Sanjay is <b class="hl">younger than</b> Tina.',ko:'산제이는 티나보다 어려요. (young → younger)'}]));
+
+  /* ── 15.3 비교급 실험실 ── */
+  const ADJ=[['fast','faster','대부분: -er 을 붙여요','A plane is faster than a train.'],['tall','taller','대부분: -er 을 붙여요','Ahmed is taller than Jonathan.'],['cold','colder','대부분: -er 을 붙여요','Ice is colder than water.'],
+    ['close','closer','-e 로 끝나면 -r 만 붙여요','The store is closer than the park.'],['large','larger','-e 로 끝나면 -r 만 붙여요','An elephant is larger than a lion.'],['late','later','-e 로 끝나면 -r 만 붙여요','Seven o’clock is later than three o’clock.'],
+    ['early','earlier','자음 + y → y 를 빼고 -ier','Three o’clock is earlier than seven o’clock.'],['easy','easier','자음 + y → y 를 빼고 -ier','English is easier than Chinese for me.'],['happy','happier','자음 + y → y 를 빼고 -ier','My dog is happier than my cat.'],
+    ['big','bigger','자음+모음+자음 → 마지막 자음 두 번 + -er','A horse is bigger than a rabbit.'],['hot','hotter','자음+모음+자음 → 마지막 자음 두 번 + -er','Costa Rica is hotter than the Bahamas.'],['thin','thinner','자음+모음+자음 → 마지막 자음 두 번 + -er','My jumper is thinner than your coat.'],
+    ['beautiful','more beautiful','3음절 이상 → more + 형용사','This beach is more beautiful than that one.'],['expensive','more expensive','3음절 이상 → more + 형용사','Gold is more expensive than silver.'],['difficult','more difficult','3음절 이상 → more + 형용사','Science is more difficult than history.']];
+  const fout=$('#fout');
+  function showAdj(i){ const a=ADJ[i]; $$('#former button').forEach((b,k)=>b.classList.toggle('on',k===i));
+    const comp=a[1].startsWith('more')?`<span class="hl3">more</span> ${a[0]}`:(()=>{let s=0;while(s<a[0].length&&a[0][s]===a[1][s])s++;return a[1].slice(0,s)+'<span class="hl3">'+a[1].slice(s)+'</span>';})();
+    fout.innerHTML=`<div class="w">${a[0]}</div><div class="ar">→</div><div class="w">${comp}</div><div class="rule">💡 ${a[2]}</div><div class="sent" data-say="${a[3]}">${a[3]} 🔊</div>`; EFE.say(a[0]+', '+a[1]); }
+  ADJ.forEach((a,i)=>{ const b=h('button',{type:'button'},a[0]); b.addEventListener('click',()=>showAdj(i)); $('#former').append(b); });
+  fout.innerHTML='<div class="rule">👆 위의 형용사를 눌러 비교급이 어떻게 바뀌는지 확인해 보세요.</div>';
+
+  /* ── 15.7 ── */
+  const LONG=[['beautiful','This beach is','that one.'],['expensive','Flying is','traveling by car.'],['exciting','Surfing is','going to the gym.'],['interesting','This book is','that one.'],['difficult','Science is','history.']];
+  EFE.puzzle($('#puz157'),{pieces:[
+    {label:'SUBJECT + VERB',cls:'g',derive:(t,s)=>LONG[s[2]||0][1]},
+    {label:'“MORE”',cls:'t3',text:'more'},
+    {label:'ADJECTIVE',cls:'t4',opts:LONG.map(l=>l[0]),row:true},
+    {label:'“THAN”',cls:'t2',text:'than'},
+    {label:'REST OF SENTENCE',cls:'g',derive:(t,s)=>LONG[s[2]||0][2]}],
+    sentence:t=>t.join(' '),
+    extra:(t,s)=>`✘ ${LONG[s[2]||0][0]}er 가 아니라 <b>more ${LONG[s[2]||0][0]}</b> 이에요.`});
+
+  /* ── 15.8 ── */
+  $('#ex158').append(EFE.excards([
+    {pic:'🏄',en:'Surfing is <b class="hl">more exciting than</b> going to the gym.',ko:'서핑은 체육관에 가는 것보다 더 신나요.'},
+    {pic:'✈️🚗',en:'Flying is <b class="hl">more expensive than</b> traveling by car.',ko:'비행기 여행은 자동차 여행보다 더 비싸요.'},
+    {pic:'📖',en:'This book is <b class="hl">more interesting than</b> that one.',ko:'이 책은 저 책보다 더 재미있어요.'},
+    {pic:'⚛️⏳',en:'For me, science is <b class="hl">more difficult than</b> history.',ko:'나에게는 과학이 역사보다 더 어려워요.'}]));
+
+  /* ── 연습문제 ── */
+  EFE.def('15.4',{type:'fill',say:true,en:'FILL IN THE GAPS USING THE WORDS IN THE PANEL TO COMPLETE THE SENTENCES',ko:'그림을 보고 보기에서 알맞은 단어를 골라 비교 문장을 완성하세요.',
+    tip:'larger(더 큰) · earlier(더 이른) · colder(더 차가운) · smaller(더 작은) — 어느 쪽이 더 큰지, 더 이른지 그림을 보고 생각해 보세요.',
+    bank:[{t:'red',ex:true},'seven','coffee','mouse',{t:'blue',ex:true},'three','cat','elephant','ice cream','lion'],
+    example:{pic:'🧳',segs:['The ',{a:['red'],w:110},' suitcase is bigger than the ',{a:['blue'],w:110},' suitcase.']},
+    items:[{pic:'🦁🐘',segs:['An ',{a:['elephant'],w:110},' is larger than a ',{a:['lion'],w:110},'.']},
+      {pic:'🕒🕖',segs:[{a:['three','3'],w:90},' o’clock is earlier than ',{a:['seven','7'],w:90},' o’clock.']},
+      {pic:'🍦☕',segs:[{a:['ice cream','an ice cream'],w:120},' is colder than ',{a:['coffee','a coffee'],w:110},'.']},
+      {pic:'🐭🐈',segs:['A ',{a:['mouse'],w:110},' is smaller than a ',{a:['cat'],w:110},'.']}]});
+
+  /* 15.5: 단어 찾기 + 비교급 쓰기 (이 단원 전용 유형) */
+  EFE.TYPES.wsfill=function(spec){
+    const fill=EFE.TYPES.fill(spec);
+    const G=spec.grid, R=G.length, C=G[0].length, cells=[], found=new Map();
+    const COL=['#e8710a','#7b3fa0','#0d8a7a','#1f78c8','#c2417c','#8a6d00','#d4423a','#4a6fa5','#2e9d62'];
+    const grid=h('div',{class:'ws2',style:{gridTemplateColumns:`repeat(${C},auto)`}});
+    const msg=h('div',{class:'bmsg',role:'status'},'👆 단어의 첫 글자를 누르고, 마지막 글자를 누르세요. (가로 · 세로)');
+    const fl=h('div',{class:'ws2found'});
+    let start=null;
+    for(let r=0;r<R;r++)for(let c=0;c<C;c++){const b=h('button',{type:'button','aria-label':`${G[r][c]} ${r+1}행 ${c+1}열`},G[r][c]);b.addEventListener('click',()=>pick(r,c));cells.push(b);grid.append(b);}
+    const at=(r,c)=>cells[r*C+c];
+    function mark(w,path){const col=COL[found.size%COL.length];path.forEach(p=>{p.classList.add('hit');p.style.background=col;});found.set(w,path);fl.append(h('span',{style:{background:col}},w));}
+    function pick(r,c){
+      if(!start){start={r,c};at(r,c).classList.add('start');return;}
+      const s=start;at(s.r,s.c).classList.remove('start');start=null;
+      const dr=r-s.r,dc=c-s.c,n=Math.max(Math.abs(dr),Math.abs(dc));
+      if(n===0||!(dr===0||dc===0||Math.abs(dr)===Math.abs(dc))){msg.className='bmsg bad';msg.textContent='가로 · 세로 · 대각선으로 일직선이어야 해요.';return;}
+      let w='',path=[];for(let i=0;i<=n;i++){const rr=s.r+Math.sign(dr)*i,cc=s.c+Math.sign(dc)*i;w+=G[rr][cc];path.push(at(rr,cc));}
+      const hit=spec.words.find(x=>x.toUpperCase()===w||x.toUpperCase()===w.split('').reverse().join(''));
+      if(!hit){msg.className='bmsg bad';msg.textContent=`“${w}” 은(는) 찾는 비교급이 아니에요.`;return;}
+      if(found.has(hit)){msg.className='bmsg bad';msg.textContent='이미 찾은 단어예요.';return;}
+      mark(hit,path);msg.className='bmsg good';msg.textContent=`✔ 찾았어요: ${hit.toUpperCase()} (${found.size} / ${spec.words.length})`;EFE.say(hit);
+    }
+    const node=h('div',{class:'ws2wrap'},h('div',null,grid,msg,fl),h('div',null,fill.node));
+    function clearGrid(){found.forEach(p=>p.forEach(x=>{x.classList.remove('hit');x.style.background='';}));found.clear();fl.innerHTML='';}
+    return {node,check:()=>fill.check(),
+      reveal(){fill.reveal();spec.words.forEach(w=>{if(!found.has(w))mark(w,spec.path[w].map(([r,c])=>at(r,c)));});},
+      reset(){fill.reset();clearGrid();msg.className='bmsg';msg.textContent='';}};
+  };
+  const WS='ERPWTIEVEHCL HVKKRKNIAIFO OHMEASIERGVW TLATERCYLHFE TYTXELICIEQR EFLARGERERLT RKTHINNEREVK JAKIOHMRNPLQ GDHBCLOSERED'.split(' ').map(r=>r.split(''));
+  const ln=(r,c,dr,dc,n)=>Array.from({length:n},(_,i)=>[r+dr*i,c+dc*i]);
+  EFE.def('15.5',{type:'wsfill',en:'FIND NINE COMPARATIVES IN THE GRID AND WRITE THEM NEXT TO THE CORRECT ADJECTIVE',ko:'표에서 비교급 9개를 찾고, 알맞은 형용사 옆에 비교급을 쓰세요.',
+    tip:'large · late · close → -r 만 / easy · early → -ier / hot · thin → 자음 두 번 + -er / low · high → -er',
+    grid:WS, words:['thinner','lower','higher','larger','later','easier','earlier','hotter','closer'],
+    path:{thinner:ln(6,2,0,1,7),lower:ln(0,11,1,0,5),higher:ln(0,9,1,0,6),larger:ln(5,2,0,1,6),later:ln(3,1,0,1,5),easier:ln(2,3,0,1,6),earlier:ln(0,8,1,0,7),hotter:ln(1,0,1,0,6),closer:ln(8,4,0,1,6)},
+    example:{segs:['thin = ',{a:['thinner'],w:130}]},
+    items:[{segs:['low = ',{a:['lower'],w:130}]},{segs:['high = ',{a:['higher'],w:130}]},{segs:['large = ',{a:['larger'],w:130}]},{segs:['late = ',{a:['later'],w:130}]},
+      {segs:['easy = ',{a:['easier'],w:130}]},{segs:['early = ',{a:['earlier'],w:130}]},{segs:['hot = ',{a:['hotter'],w:130}]},{segs:['close = ',{a:['closer'],w:130}]}]});
+
+  EFE.def('15.9',{type:'fill',say:true,en:'FILL IN THE GAPS USING THE CORRECT COMPARATIVES',ko:'앞 문장의 형용사를 비교급(more ~ than)으로 바꿔 빈칸을 채우세요.',
+    tip:'expensive · difficult · beautiful · interesting 은 3음절 이상의 긴 형용사 → more + 형용사 + than',
+    example:{segs:['This movie is really exciting. It’s ',{a:['more exciting than'],w:200},' the book.']},
+    items:[{segs:['The Hotel Supreme is very expensive. It’s ',{a:['more expensive than'],w:200},' the Motel Excelsior.']},
+      {segs:['The physics exam is really difficult. It’s ',{a:['more difficult than'],w:200},' the biology exam.']},
+      {segs:['Your dress is very beautiful. It’s ',{a:['more beautiful than'],w:200},' my dress.']},
+      {segs:['This TV program is really interesting. It’s ',{a:['more interesting than'],w:200},' the other ones.']}]});
+
+  EFE.def('15.10',{type:'fill',say:true,en:'FILL IN THE GAPS BY PUTTING THE ADJECTIVES INTO THEIR COMPARATIVE FORMS',ko:'괄호 안의 형용사를 비교급 + than 으로 바꿔 빈칸을 채우세요.',
+    tip:'expensive · difficult → more ~ than / late → later than (-e 로 끝남) / big → bigger than (g 를 두 번)',
+    example:{pic:'🎈🎂',segs:['The balloon is ',{a:['lighter than'],w:190},' <b>(light)</b> the birthday cake.']},
+    items:[{pic:'💻📱',segs:['This laptop is ',{a:['more expensive than'],w:190},' <b>(expensive)</b> this phone.']},
+      {pic:'🕖🕒',segs:['Seven o’clock is ',{a:['later than'],w:190},' <b>(late)</b> three o’clock.']},
+      {pic:'♟️🃏',segs:['A game of chess is ',{a:['more difficult than'],w:190},' <b>(difficult)</b> a game of cards.']},
+      {pic:'🐎🐇',segs:['A horse is ',{a:['bigger than'],w:190},' <b>(big)</b> a rabbit.']}]});
+
+  const AUD=['Joe: Where do you want to go on vacation, Selma? Costa Rica or the Bahamas?',
+    'Selma: I want to go to Costa Rica. It’s hotter than the Bahamas.',
+    'Joe: But the Bahamas is easier to fly to than Costa Rica.',
+    'Selma: No, it isn’t. Costa Rica is easier to fly to. There’s a flight every day.',
+    'Joe: OK. But the hotels in the Bahamas are more expensive than the hotels in Costa Rica.',
+    'Selma: And look at this beach in Costa Rica. Playa Hermosa is more beautiful than Tahiti Beach in the Bahamas.',
+    'Joe: You’re right. And I think Costa Rica is more exciting than the Bahamas, too. There are volcanoes and rainforests!',
+    'Selma: Great! Let’s go to Costa Rica.'];
+  EFE.def('15.11',{type:'tf',en:'LISTEN TO THE AUDIO AND ANSWER THE QUESTIONS',ko:'셀마와 조가 휴가지를 고르는 대화를 듣고 True(참) / False(거짓)를 고르세요.',
+    tip:'누가 무엇이 “더 ~하다”고 말하는지 잘 들어 보세요. 셀마가 조의 말을 바로잡는 부분도 있어요.',
+    intro:'🏝️ Selma and Joe are deciding where to go on vacation. (셀마와 조가 휴가 장소를 정하고 있어요.)',
+    audio:{lines:AUD},
+    example:{t:'Costa Rica is hotter than the Bahamas.',a:true,say:AUD[1]},
+    items:[{t:'The Bahamas is easier to fly to than Costa Rica.',a:false,say:AUD[2]+' '+AUD[3]},
+      {t:'The Bahamas is more expensive than Costa Rica.',a:true,say:AUD[4]},
+      {t:'Tahiti Beach is more beautiful than Playa Hermosa.',a:false,say:AUD[5]},
+      {t:'Joe thinks the Bahamas is more exciting than Costa Rica.',a:false,say:AUD[6]}]});
+
+  EFE.def('15.12',{type:'choice',en:'CROSS OUT THE INCORRECT WORDS IN EACH SENTENCE',ko:'문장에서 틀린 표현을 클릭해 줄을 그으세요.',
+    tip:'than 앞에는 반드시 비교급! 짧은 형용사(early, fast, hard, warm)는 -er, 긴 형용사(beautiful, expensive, exciting)는 more.',
+    example:{pre:'An elephant is ',opts:['bigger','more big'],post:' than a lion.',ans:0},
+    items:[{pre:'Paris is ',opts:['beautiful','more beautiful'],post:' than Dallas.',ans:1},
+      {pre:'Noon is ',opts:['earlier','more early'],post:' than 5pm.',ans:0},
+      {pre:'A cheetah is ',opts:['faster','more fast'],post:' than a bear.',ans:0},
+      {pre:'Gold is ',opts:['expensive','more expensive'],post:' than silver.',ans:1},
+      {pre:'Rock is ',opts:['harder','more hard'],post:' than paper.',ans:0},
+      {pre:'Water is ',opts:['warmer','more warm'],post:' than ice.',ans:0},
+      {pre:'Skiing is ',opts:['exciting','more exciting'],post:' than walking.',ans:1}]});
+
+  EFE.checklist($('#checklist'),['Comparative adjectives','Travel and countries','Comparing things']);
+  EFE.go();
+})();
+</script>
+</body>
+</html>

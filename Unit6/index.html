@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 6 · Vocabulary: Feelings and moods</title>
+<meta name="description" content="English for Everyone Level 2 · Unit 6 — 어휘: 감정과 기분을 나타내는 형용사 32개. 그림 카드, 발음 듣기, 추가 연습문제">
+<link rel="stylesheet" href="../shared/efe.css">
+<style>
+.emo{font-size:64px;line-height:1;padding:14px 0;text-align:center}
+.scale{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin:10px 0}
+.scale span{background:var(--card);border:1.5px solid var(--accent-mid);border-radius:99px;padding:4px 12px;font-weight:700;cursor:pointer}
+.scale i{font-style:normal;color:var(--accent);font-weight:800}
+</style>
+</head>
+<body data-unit="6">
+<main class="wrap" id="flow">
+
+<section class="mod lesson" id="m6-0" data-label="미리보기">
+  <div class="mod-head"><span class="n">★</span><h2><span class="k">OVERVIEW</span> 감정 단어 한눈에 보기<small>기분을 말하는 형용사 — 좋은 기분부터 나쁜 기분까지</small></h2></div>
+  <div class="mod-body">
+    <p class="lead">기분이나 감정은 <b class="hl">형용사(adjective)</b>로 말해요. be동사 뒤에 붙이면 바로 문장이 돼요: <span class="en" data-say="I am happy.">I am <b class="hl">happy</b>.</span> / <span class="en" data-say="She is tired.">She is <b class="hl">tired</b>.</span></p>
+    <div class="diagram"><div id="mapsvg"></div><div class="cap">감정 지도 — 기분이 좋은 쪽(왼쪽)과 나쁜 쪽(오른쪽), 차분함(아래)과 강함(위)</div></div>
+    <div class="grid3" id="ocards"></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m6-1" data-label="6.1">
+  <div class="mod-head"><span class="n">6.1</span><h2><span class="k">VOCABULARY</span> FEELINGS AND MOODS<small>감정과 기분 — 카드를 누르면 소리가 나요</small></h2></div>
+  <div class="mod-body">
+    <h3 style="margin:2px 0 6px">😊 좋은 기분 · 편안함</h3><div id="v1"></div>
+    <h3 style="margin:16px 0 6px">😠 화남 · 짜증</h3><div id="v2"></div>
+    <h3 style="margin:16px 0 6px">😢 슬픔 · 실망</h3><div id="v3"></div>
+    <h3 style="margin:16px 0 6px">😨 걱정 · 두려움 · 긴장</h3><div id="v4"></div>
+    <h3 style="margin:16px 0 6px">🤔 그 밖의 기분</h3><div id="v5"></div>
+    <div class="note"><b>📏 감정의 세기</b> 같은 감정도 약한 말과 강한 말이 있어요. 눌러서 들어 보세요.
+      <div class="scale" id="sc1"></div><div class="scale" id="sc2"></div><div class="scale" id="sc3"></div></div>
+    <div class="tip"><b>💡 -ed 와 -ing</b> 감정 형용사는 대부분 <b>-ed</b> 로 끝나요. <span class="en">I’m bored.</span> (나는 지루해요 — 내 기분) ↔ <span class="en">The movie is boring.</span> (영화가 지루해요 — 기분을 만드는 것). 이 단원에서는 사람의 기분을 말하는 <b>-ed</b> 형을 익혀요.</div>
+  </div>
+</section>
+
+<div data-ex="6.A"></div>
+<div data-ex="6.B"></div>
+<div data-ex="6.C"></div>
+<div data-ex="6.D"></div>
+
+<section class="mod lesson" id="m6-s" data-label="총정리">
+  <div class="mod-head"><span class="n">📌</span><h2><span class="k">SUMMARY</span> Unit 6 총정리 표<small>감정 형용사 32개</small></h2></div>
+  <div class="mod-body">
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>분류</th><th>단어</th></tr></thead>
+      <tbody id="sumrows"></tbody></table></div>
+    <div class="note"><b>✍️ 문장으로</b> <span class="en">I’m happy.</span> · <span class="en">He’s angry.</span> · <span class="en">They’re tired.</span> — 다음 단원(Unit 7)에서는 <span class="en">I’m <b>feeling</b> happy.</span> 처럼 말하는 법을 배워요.</div>
+  </div>
+</section>
+
+<div id="checklist"></div>
+</main>
+
+<script src="../shared/art.js"></script>
+<script src="../shared/efe.js"></script>
+<script>
+(function(){
+  const {h,$,$$}=EFE, A=ART;
+  EFE.chrome({unit:6,
+    intro:'기분과 감정을 나타내는 형용사 32개를 그림과 소리로 익혀요. (교재 pp. 30–31 어휘 페이지 + 추가 연습)',
+    goals:[['Vocabulary','Feelings and moods','감정·기분 형용사'],['Practice','Listen & match','듣고 고르기 추가 연습'],['New skill','Saying how you feel','기분 말하기 준비']]});
+
+  const W={
+    good:[['🧘','calm','차분한'],['😌','relaxed','느긋한, 편안한'],['😀','happy','행복한'],['😎','confident','자신 있는'],['🏆','proud','자랑스러운'],['🤩','excited','신난, 들뜬'],['😲','surprised','놀란'],['😊','pleased','기쁜, 만족한'],['😄','cheerful','명랑한, 쾌활한'],['😆','amused','재미있어하는'],['🙏','grateful','고마워하는']],
+    angry:[['😒','irritated','짜증 난'],['😤','annoyed','약간 화가 난, 귀찮은'],['😠','angry','화난'],['😡','furious','몹시 화난, 격노한'],['😾','jealous','질투하는']],
+    sad:[['😢','sad','슬픈'],['☹️','unhappy','불행한, 기분이 안 좋은'],['😞','disappointed','실망한'],['😖','miserable','비참한, 몹시 우울한'],['🙍','lonely','외로운']],
+    fear:[['😟','worried','걱정하는'],['😬','nervous','긴장한, 초조한'],['😰','anxious','불안한'],['🤯','stressed','스트레스 받는'],['😨','scared','무서워하는'],['😱','terrified','몹시 무서워하는, 겁에 질린']],
+    other:[['📱','distracted','산만한, 집중 못 하는'],['😕','confused','헷갈리는, 혼란스러운'],['🥱','tired','피곤한'],['😑','bored','지루한'],['🧐','curious','궁금한, 호기심 많은']]};
+  $('#v1').append(EFE.vgrid(W.good)); $('#v2').append(EFE.vgrid(W.angry)); $('#v3').append(EFE.vgrid(W.sad)); $('#v4').append(EFE.vgrid(W.fear)); $('#v5').append(EFE.vgrid(W.other));
+  const scale=(el,arr)=>{ arr.forEach((w,i)=>{ if(i) el.append(h('i',null,'→')); const s=h('span',{'data-say':w},w); el.append(s); }); };
+  scale($('#sc1'),['irritated','annoyed','angry','furious']); scale($('#sc2'),['worried','scared','terrified']); scale($('#sc3'),['unhappy','sad','miserable']);
+
+  /* ── 감정 지도 ── */
+  const P=[['calm',120,250],['relaxed',150,215],['pleased',110,170],['happy',170,140],['cheerful',90,115],['excited',160,60],['proud',70,70],['confident',230,95],
+           ['bored',420,250],['tired',520,240],['sad',450,195],['lonely',560,190],['worried',420,140],['nervous',520,120],['angry',430,75],['furious',520,45],['terrified',600,80]];
+  $('#mapsvg').innerHTML=A.svg('0 0 680 290',`<rect x="10" y="10" width="320" height="270" rx="16" fill="#fff4d6" stroke="#e8a33d" stroke-width="2"/>
+    <rect x="350" y="10" width="320" height="270" rx="16" fill="#e5eefc" stroke="#5b7fc7" stroke-width="2"/>
+    <g font-family="sans-serif" font-weight="800" font-size="13"><text x="20" y="30" fill="#b06d00">😊 GOOD 좋은 기분</text><text x="360" y="30" fill="#2f4f8f">😟 BAD 나쁜 기분</text>
+    <text x="300" y="272" text-anchor="end" fill="#999" font-weight="500" font-size="11">차분함 ↓ · 강함 ↑</text></g>
+    <g font-family="sans-serif" font-weight="700" font-size="17" text-anchor="middle" fill="#333">`+P.map(p=>`<text x="${p[1]}" y="${p[2]}">${p[0]}</text>`).join('')+`</g>`,'map of feelings: good and bad, calm and strong');
+  $('#ocards').append(EFE.excards([
+    {pic:'😀',en:'I am <b class="hl">happy</b>.',ko:'be동사 + 감정 형용사'},
+    {pic:'😴',en:'He is <b class="hl">tired</b>.',ko:'주어에 맞게 am / is / are'},
+    {pic:'😱',en:'We are <b class="hl">terrified</b>.',ko:'scared보다 더 강한 말'}]));
+
+  /* ── 총정리 ── */
+  const SUMN=[['좋은 기분 · 편안함','good'],['화남 · 짜증','angry'],['슬픔 · 실망','sad'],['걱정 · 두려움 · 긴장','fear'],['그 밖의 기분','other']];
+  $('#sumrows').append(...SUMN.map(([k,key])=>h('tr',null,h('td',null,h('b',null,k)),h('td',null,W[key].map(x=>x[1]+' ('+x[2].split(',')[0]+')').join(' · ')))));
+
+  /* ── 추가 연습 ── */
+  const emo=e=>`<div class="emo">${e}</div>`;
+  EFE.def('6.A',{type:'imgselect',en:'LOOK AT THE PICTURES AND CHOOSE THE CORRECT FEELINGS',ko:'추가 연습 (교재 외) — 그림(표정)을 보고 알맞은 감정 단어를 고르세요.',
+    tip:'😴 tired · 😑 bored · 😲 surprised · 😕 confused · 😡 furious · 😟 worried · 🤩 excited · 😢 sad',
+    names:['bored','confused','excited','furious','sad','surprised','tired','worried'],
+    example:{svg:emo('😀'),ans:'happy'},
+    cards:[{svg:emo('🥱'),ans:'tired'},{svg:emo('😲'),ans:'surprised'},{svg:emo('😑'),ans:'bored'},{svg:emo('😡'),ans:'furious'},
+      {svg:emo('😕'),ans:'confused'},{svg:emo('😟'),ans:'worried'},{svg:emo('🤩'),ans:'excited'},{svg:emo('😢'),ans:'sad'}]});
+
+  EFE.def('6.B',{type:'match',en:'MATCH THE WORDS TO THEIR MEANINGS',ko:'추가 연습 (교재 외) — 왼쪽 단어를 먼저 누르고, 알맞은 우리말 뜻을 오른쪽에서 눌러 연결하세요.',
+    tip:'lonely 외로운 · proud 자랑스러운 · grateful 고마워하는 · jealous 질투하는 · disappointed 실망한 · curious 궁금한 · nervous 긴장한',
+    example:{l:'calm',at:2},
+    left:['lonely','proud','grateful','jealous','disappointed','curious','nervous'],
+    right:['질투하는','긴장한, 초조한','차분한','외로운','궁금한','고마워하는','실망한','자랑스러운'],
+    ans:[3,7,5,0,6,4,1]});
+
+  EFE.def('6.C',{type:'fill',say:true,en:'FILL IN THE GAPS USING THE WORDS IN THE PANEL',ko:'추가 연습 (교재 외) — 상황을 읽고 보기에서 알맞은 감정 단어를 골라 빈칸을 채우세요.',
+    tip:'상황을 떠올려 보세요: 시험 전 → nervous, 혼자 → lonely, 선물을 받음 → grateful, 일이 너무 많음 → stressed, 거미 → scared …',
+    bank:[{t:'tired',ex:1},'nervous','lonely','grateful','stressed','scared','proud','bored','confused'],
+    example:{segs:['I worked all day. I’m very ',{a:['tired'],w:120},'.']},
+    items:[{segs:['I have a big test tomorrow. I’m ',{a:['nervous'],w:120},'.']},
+      {segs:['My family is far away. I’m ',{a:['lonely'],w:120},'.']},
+      {segs:['Thank you for the present! I’m so ',{a:['grateful'],w:120},'.']},
+      {segs:['I have too much work this week. I’m ',{a:['stressed'],w:120},'.']},
+      {segs:['There’s a big spider! I’m ',{a:['scared'],w:120},'.']},
+      {segs:['My son won the race. I’m very ',{a:['proud'],w:120},'.']},
+      {segs:['There’s nothing to do. I’m ',{a:['bored'],w:120},'.']},
+      {segs:['I don’t understand the question. I’m ',{a:['confused'],w:120},'.']}]});
+
+  const L=['I am feeling so relaxed on vacation.','My brother is angry with me.','We are excited about the party.','She is worried about her exam.','They are surprised to see us.','I am disappointed with my score.','He is amused by the funny video.'];
+  EFE.def('6.D',{type:'mcq',en:'LISTEN TO THE AUDIO AND MARK THE FEELING YOU HEAR',ko:'추가 연습 (교재 외) — 듣고, 들린 감정 단어를 고르세요. 먼저 🔊 를 눌러 들어 보세요.',
+    tip:'문장 끝의 형용사를 잘 들어 보세요. relaxed / angry / excited / worried / surprised / disappointed / amused',
+    audio:{lines:L},
+    example:{opts:['relaxed','annoyed','lonely'],ans:0,say:L[0]},
+    items:[{opts:['hungry','angry','anxious'],ans:1,say:L[1]},{opts:['excited','irritated','tired'],ans:0,say:L[2]},
+      {opts:['bored','calm','worried'],ans:2,say:L[3]},{opts:['scared','surprised','stressed'],ans:1,say:L[4]},
+      {opts:['disappointed','distracted','confident'],ans:0,say:L[5]},{opts:['annoyed','anxious','amused'],ans:2,say:L[6]}]});
+
+  EFE.checklist($('#checklist'),['Feelings and moods 감정 형용사 32개','감정의 세기 (annoyed → angry → furious)','be동사 + 감정 형용사로 말하기']);
+  EFE.go();
+})();
+</script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>English for Everyone · Level 2 — Interactive Units 1–5</title>
-<meta name="description" content="English for Everyone Level 2 (Beginner) Units 1–5 인터랙티브 수업 사이트">
+<title>English for Everyone · Level 2 — Interactive Units 1–15</title>
+<meta name="description" content="English for Everyone Level 2 (Beginner) Units 1–15 인터랙티브 수업 사이트">
 <style>
 :root{--bg:#fdf8f1;--card:#fff;--ink:#23201c;--mut:#6b645a;--line:#eadfce}
 @media (prefers-color-scheme:dark){:root{--bg:#1b1916;--card:#25221e;--ink:#f3ede4;--mut:#aaa196;--line:#3a352e}}
@@ -31,9 +31,9 @@ a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 22
 <body>
 <main class="wrap">
   <h1>📘 English for Everyone · Level 2</h1>
-  <p class="sub">Beginner Course Book — Unit 1~5 인터랙티브 수업 사이트 · 단원을 눌러 시작하세요</p>
+  <p class="sub">Beginner Course Book — Unit 1~15 인터랙티브 수업 사이트 · 단원을 눌러 시작하세요</p>
   <div class="grid" id="g"></div>
-  <p class="note">교재 pp. 12–29(Unit 1–5)의 학습 내용과 모든 연습문제를 학생이 직접 풀 수 있도록 만든 수업용 사이트입니다. 설명 도표와 그림은 직접 제작했고, 듣기 문제는 브라우저 음성(TTS)으로 읽어 줍니다. 공식 오디오는 교재 제공처(dkefe.com)에서 받을 수 있어요. 풀이 기록은 이 브라우저에만 저장됩니다.</p>
+  <p class="note">교재 pp. 12–57(Unit 1–15)의 학습 내용과 모든 연습문제를 학생이 직접 풀 수 있도록 만든 수업용 사이트입니다. 설명 도표와 그림은 직접 제작했고, 어휘 단원(6·8·10·12·14)은 교재에 연습문제가 없어 직접 만든 추가 연습(예: 6.A)을 넣었어요. 듣기 문제는 브라우저 음성(TTS)으로 읽어 줍니다. 공식 오디오는 교재 제공처(dkefe.com)에서 받을 수 있어요. 풀이 기록은 이 브라우저에만 저장됩니다.</p>
 </main>
 <script>
 (function(){
@@ -42,7 +42,17 @@ a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 22
     [2,272,'Unit 2','Talking about routines','현재 단순 긍정·부정, 하루 일과 말하기',['현재 단순','일과'],5],
     [3,170,'Unit 3','Today I’m wearing…','현재진행형 긍정·부정, 옷과 활동',['현재진행형','옷'],7],
     [4,208,'Unit 4',"What’s happening?",'현재진행형 의문문, 활동과 전자기기',['의문문','전자기기'],6],
-    [5,334,'Unit 5','Types of verbs','동작동사 vs 상태동사',['상태동사','단어 찾기'],3]];
+    [5,334,'Unit 5','Types of verbs','동작동사 vs 상태동사',['상태동사','단어 찾기'],3],
+    [6,200,'Unit 6 · Vocabulary','Feelings and moods','감정·기분 형용사 32개 익히기',['감정 형용사','어휘'],4],
+    [7,22,'Unit 7','How are you feeling?','be + feeling, very·really·so로 기분 말하기',['감정 표현','부사 강조'],5],
+    [8,250,'Unit 8 · Vocabulary','Transportation','탈것·교통 장소·자동차 부품 어휘',['교통수단','US/UK 단어'],4],
+    [9,150,'Unit 9','Routines and exceptions','평소 습관 vs 오늘의 예외 대조',['현재 단순 vs 진행형','시간 표지'],4],
+    [10,350,'Unit 10 · Vocabulary','The body','머리부터 발끝까지 신체 부위 32개',['신체 부위','불규칙 복수'],4],
+    [11,190,'Unit 11',"What’s the matter?",'아픈 곳과 증상 말하기',['건강 문제','hurts · ache · pain'],3],
+    [12,212,'Unit 12 · Vocabulary','Weather','날씨 명사와 날씨 형용사(-y)',['날씨','형용사'],4],
+    [13,40,'Unit 13',"What’s the weather like?",'날씨 묻고 답하기, 기온(°F/°C)',['날씨 묘사','기온'],5],
+    [14,290,'Unit 14 · Vocabulary','Travel','공항·비행·관광·숙소 여행 어휘',['여행 어휘','공항'],4],
+    [15,162,'Unit 15','Making comparisons','비교급 -er than, more ~ than',['비교급','형용사'],6]];
   let st={}; try{st=JSON.parse(localStorage.getItem('efe.l2.progress.v1')||'{}')||{};}catch(e){}
   const g=document.getElementById('g');
   U.forEach(([n,h,no,t,d,tags,tot])=>{

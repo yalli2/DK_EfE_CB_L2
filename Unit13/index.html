@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 13 · What’s the weather like?</title>
+<meta name="description" content="English for Everyone Level 2 · Unit 13 — 날씨 묻고 답하기: What’s the weather like?, 날씨 형용사와 현재진행형, 기온 말하기(°F/°C). 도표 설명과 모든 연습문제 풀이">
+<link rel="stylesheet" href="../shared/efe.css">
+<style>
+.cw-wrap{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.cw{display:grid;gap:3px;flex:none}
+.cw .c{width:40px;height:40px}
+.cw .c.on{position:relative;background:var(--card);border:2px solid var(--accent);border-radius:6px}
+.cw .c.on input{width:100%;height:100%;border:0;background:transparent;text-align:center;font:700 20px var(--font);color:var(--ink);text-transform:lowercase;padding:0;outline:none}
+.cw .c.on input:focus{background:var(--accent-soft)}
+.cw .c.on sup{position:absolute;left:3px;top:0;font-size:10px;font-weight:800;color:var(--accent-d);line-height:1.2;pointer-events:none}
+.cw .c.ok{border-color:var(--ok);background:var(--ok-soft)}.cw .c.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cw .c.rev{border-color:var(--warn)}
+.cw .c.fixed input{color:var(--muted)}
+.cw-clues{flex:1;min-width:260px}
+.cw-clues h4{margin:4px 0 6px;font-size:14px;letter-spacing:.08em;color:var(--accent-d)}
+.cw-clues p{margin:0 0 10px;font-size:16px}
+.cw-clues p.ok{color:var(--ok)}.cw-clues p.bad{color:var(--bad)}
+.cw-clues .num{display:inline-block;min-width:22px;height:22px;border-radius:99px;background:var(--accent);color:#fff;text-align:center;font-size:13px;font-weight:800;margin-right:6px;line-height:22px}
+.mbtn svg{width:150px;height:auto;display:block}
+.conv{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0}
+.conv input[type=range]{width:100%}
+.conv .big{font-size:26px;font-weight:800}
+.conv .ph{font-size:22px;font-weight:700;color:var(--accent-d)}
+</style>
+</head>
+<body data-unit="13">
+<main class="wrap" id="flow">
+
+<section class="mod lesson" id="m13-0" data-label="미리보기">
+  <div class="mod-head"><span class="n">★</span><h2><span class="k">OVERVIEW</span> 날씨 묻고 답하기 한눈에 보기<small>What’s the weather like? → It’s + 날씨 형용사</small></h2></div>
+  <div class="mod-body">
+    <p class="lead">날씨를 물을 때는 <b class="hl">What’s the weather like?</b> 라고 해요. 대답은 <b>to be</b> 동사와 날씨 단어를 써서 <b>It’s sunny.</b> / <b>There are a lot of clouds.</b> 처럼 말해요. 지금 일어나는 날씨는 <b>현재진행형(It’s raining.)</b>으로 말해요.</p>
+    <div class="diagram"><div id="ovsvg"></div><div class="cap">질문 하나 → 세 가지 대답 방법</div></div>
+    <div class="grid3" id="ocards"></div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m13-1" data-label="13.1">
+  <div class="mod-head"><span class="n">13.1</span><h2><span class="k">KEY LANGUAGE</span> TALKING ABOUT THE WEATHER<small>날씨에 대해 말하기</small></h2></div>
+  <div class="mod-body">
+    <p>날씨를 물을 때는 <b>“What’s the weather like?”</b> 라고 말해요. 대답할 때는 <b>to be</b> 동사와 알맞은 날씨 단어나 표현을 써요.</p>
+    <div class="brow"><div class="fg" id="askfig"></div>
+      <div><div class="bubble" data-say="What's the weather like?">What’s the weather <b>like</b>?</div></div></div>
+    <div class="brow"><div class="fg" id="ansfig"></div>
+      <div><div class="bubble" data-say="Okay, but there are a lot of clouds. It's cloudy.">Okay, but there are <b>a lot of clouds</b>. It’s <b>cloudy</b>.</div></div></div>
+    <div class="grid2">
+      <div class="note"><b>💡 like 는 “좋아하다”가 아니에요</b> 여기서 <span class="en">like</span> 는 동사가 아니라 전치사로 “~ 같은”이라는 뜻이에요. <span class="en">I like music.</span> 의 like(좋아하다)와 달라요. → 날씨가 <b>어떠니?</b></div>
+      <div class="note"><b>💡 a lot of + 명사</b> 구름의 <b>양</b>을 말할 때는 <span class="en">a lot of</span> 를 명사 앞에 써요. <span class="en">There are a lot of clouds.</span> (셀 수 있는 명사 → are) / <span class="en">There’s a lot of fog.</span> (셀 수 없는 명사 → is)</div>
+    </div>
+  </div>
+</section>
+
+<section class="mod lesson" id="m13-2" data-label="13.2">
+  <div class="mod-head"><span class="n">13.2</span><h2><span class="k">FURTHER EXAMPLES</span> TALKING ABOUT THE WEATHER<small>더 많은 예문 — 카드를 누르면 소리가 나요</small></h2></div>
+  <div class="mod-body">
+    <div id="ex132"></div>
+    <div class="tip"><b>💡 지금 내리는 비 · 눈</b> 지금 일어나고 있는 날씨는 <b>현재진행형</b>으로 말해요: <span class="en">It’s raining.</span> (비가 오고 있어요) · <span class="en">It’s snowing.</span> (눈이 오고 있어요). 형용사로는 <span class="en">It’s rainy. / It’s snowy.</span></div>
+    <h3 style="margin:18px 0 8px">🧩 문장 만들어 보기</h3>
+    <div id="puz"></div>
+  </div>
+</section>
+
+<div data-ex="13.3"></div>
+<div data-ex="13.4"></div>
+
+<section class="mod lesson" id="m13-5" data-label="13.5">
+  <div class="mod-head"><span class="n">13.5</span><h2><span class="k">KEY LANGUAGE</span> THE TEMPERATURE<small>기온 말하기</small></h2></div>
+  <div class="mod-body">
+    <p>기온은 <b>화씨 “Fahrenheit (°F)”</b> 또는 <b>섭씨 “Celsius (°C)”</b> 로 말해요. 말할 때는 <b>to be</b> 동사와 기온 표현을 써서 얼마나 덥고 추운지 말해요.</p>
+    <div class="grid2">
+      <div><div class="bubble" data-say="How hot is it?" style="margin-bottom:22px">How <b>hot</b> is it?</div><br>
+        <div class="bubble" data-say="How cold is it?" style="border-color:#1f78c8">How <b style="color:#1f78c8">cold</b> is it?</div></div>
+      <div class="note"><b>💡 TIP</b> 미국 영어에서는 주로 <b>화씨(°F)</b>, 영국 영어에서는 주로 <b>섭씨(°C)</b> 를 써요. 한국은 섭씨를 써요.<br><span class="en">32°F = 0°C</span> · <span class="en">50°F = 10°C</span> · <span class="en">80°F ≈ 27°C</span> · <span class="en">100°F ≈ 38°C</span></div>
+    </div>
+    <div class="diagram"><div id="thermo"></div><div class="cap">boiling = “아주 더운” · freezing = “아주 추운” (구어 표현)</div></div>
+    <h3 style="margin:16px 0 8px">🌡️ 직접 바꿔 보기 — 화씨 ↔ 섭씨</h3>
+    <div class="conv" id="conv"></div>
+  </div>
+</section>
+
+<div data-ex="13.6"></div>
+<div data-ex="13.7"></div>
+<div data-ex="13.8"></div>
+
+<section class="mod lesson" id="m13-s" data-label="총정리">
+  <div class="mod-head"><span class="n">📌</span><h2><span class="k">SUMMARY</span> Unit 13 총정리 표<small>REVIEW: Units 11–13 에서 배운 표현 포함</small></h2></div>
+  <div class="mod-body">
+    <div class="tbl-scroll"><table class="ft">
+      <thead><tr><th>표현</th><th>예문</th><th>설명</th></tr></thead>
+      <tbody>
+        <tr><td class="k">날씨 묻기</td><td>What’s the weather like?</td><td>like = “~ 같은” (전치사)</td></tr>
+        <tr><td class="k">It’s + 형용사</td><td>It’s cloudy. / It’s really hot and sunny.</td><td>sunny, cloudy, foggy, windy, icy, stormy …</td></tr>
+        <tr><td class="k">There’s / There are a lot of + 명사</td><td>There’s a lot of fog. / There are a lot of clouds.</td><td>양이 많음을 말해요</td></tr>
+        <tr><td class="k">현재진행형</td><td>It’s raining. / It’s snowing a lot.</td><td>지금 일어나는 날씨</td></tr>
+        <tr><td class="k">기온 묻기</td><td>How hot is it? / How cold is it?</td><td>얼마나 덥니? / 춥니?</td></tr>
+        <tr><td class="k">기온 말하기</td><td>It’s 27 degrees Celsius. / It’s 10 degrees Fahrenheit.</td><td>°C 섭씨 · °F 화씨</td></tr>
+        <tr><td class="k">기온 단어</td><td>freezing &lt; cold &lt; warm &lt; hot &lt; boiling</td><td>boiling = 아주 더운, freezing = 아주 추운</td></tr>
+        <tr><td class="k">(Unit 11) 몸이 안 좋을 때</td><td>Are you okay? No, I’m not feeling very well.</td><td>11.1</td></tr>
+        <tr><td class="k">(Unit 11) 아픈 곳</td><td>I have a broken foot. I have a headache.</td><td>11.3, 11.4</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<div id="checklist"></div>
+</main>
+
+<script src="../shared/art.js"></script>
+<script src="../shared/efe.js"></script>
+<script>
+(function(){
+  const {h,$,$$}=EFE, A=ART;
+  EFE.chrome({unit:13,
+    intro:'What’s the weather like? 로 날씨를 묻고, 날씨 형용사 · 현재진행형 · 기온 표현으로 대답해요.',
+    goals:[['New language','Weather descriptions','날씨 묘사하기'],['Vocabulary','Temperature words','기온 단어'],['New skill','Talking about the weather','날씨에 대해 말하기']]});
+
+  /* ── 작은 그림 ── */
+  const R='#e8542b';
+  const cloud=(x,y,s,c)=>`<path transform="translate(${x},${y}) scale(${s||1})" d="M14 40h34a9 9 0 0 0 1-18 13 13 0 0 0-25-4 10 10 0 0 0-10 22z" fill="${c||'#9aa6b2'}"/>`;
+  const sun=(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#ffc531"/>`+Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return `<line x1="${(x+Math.cos(a)*(r+4)).toFixed(1)}" y1="${(y+Math.sin(a)*(r+4)).toFixed(1)}" x2="${(x+Math.cos(a)*(r+11)).toFixed(1)}" y2="${(y+Math.sin(a)*(r+11)).toFixed(1)}" stroke="#ffc531" stroke-width="3" stroke-linecap="round"/>`;}).join('');
+  const V='0 0 300 190';
+  const SC={
+    sail:()=>A.svg(V,`<rect width="300" height="190" fill="#cfe8f7"/><path d="M0,90 L60,40 L110,80 L170,30 L240,85 L300,50 V120 H0Z" fill="#b8c4cf"/><rect y="118" width="300" height="72" fill="#2f9bd8"/><path d="M150,30 V120" stroke="#555" stroke-width="3"/><path d="M152,34 L210,112 H152Z" fill="#fff"/><path d="M148,40 L104,112 H148Z" fill="#4a4fa8"/><path d="M96,120 H220 L206,136 H110Z" fill="#fff"/><path d="M20,70 q12,-6 24,0 M240,30 q12,-6 24,0" stroke="#fff" stroke-width="3" fill="none"/>`,'a sailing boat on a windy day'),
+    beach:()=>A.svg(V,`<rect width="300" height="190" fill="#bfe6ff"/>${sun(250,36,16)}<rect y="96" width="300" height="34" fill="#2f9bd8"/><rect y="128" width="300" height="62" fill="#f2d49b"/><path d="M60,150 L210,150 L230,128" stroke="#fff" stroke-width="6" fill="none"/>`+A.fig({x:140,y:146,s:.7,arms:[-150,-120],legs:[90,96],top:'#e23d3d',skin:A.SK.b,hair:'#2b2118',hs:'long'}),'a woman relaxing on a sunny beach'),
+    ski:()=>A.svg(V,`<rect width="300" height="190" fill="#d6dde4"/><path d="M0,100 L70,40 L130,90 L200,30 L300,95 V190 H0Z" fill="#fff"/><g fill="#5e7d5e">${[20,40,250,270].map(x=>`<path d="M${x},120 l10,-34 l10,34z"/>`).join('')}</g><rect y="130" width="300" height="60" fill="#f4f7fa"/>`+A.fig({x:130,y:170,s:.9,arms:[20,-30],top:'#2e9d62',hat:'cap',hc:'#e23d3d'})+A.fig({x:170,y:170,s:.95,arms:[30,-20],top:'#d6283b',skin:A.SK.c,hat:'cap',hc:'#1f78c8'})+`<path d="M100,174 H160 M140,174 H200" stroke="#333" stroke-width="3"/><text x="70" y="70" font-size="14" fill="#9aa">* * *</text><text x="220" y="60" font-size="14" fill="#9aa">* *</text>`,'children skiing in the snow'),
+    hike:()=>A.svg(V,`<rect width="300" height="190" fill="#9aa6b2"/>${cloud(0,0,1.6,'#6f7a85')}${cloud(90,-6,1.8,'#5f6a75')}${cloud(200,4,1.5,'#6f7a85')}<path d="M0,110 L80,70 L150,100 L230,60 L300,100 V190 H0Z" fill="#6c8f6a"/><path d="M40,190 Q90,150 60,130 T120,110" stroke="#4a9fd0" stroke-width="12" fill="none"/>`+A.fig({x:190,y:176,s:.95,arms:[-10,20],top:'#f2c01e',pants:'#374151'})+A.fig({x:225,y:176,s:.95,arms:[-20,10],top:'#d6283b',skin:A.SK.b,hs:'long'})+`<rect x="196" y="112" width="16" height="22" rx="4" fill="#1f78c8"/><rect x="231" y="112" width="16" height="22" rx="4" fill="#2e9d62"/>`,'two hikers on a dark cloudy day')
+  };
+
+  /* ── 한눈에 ── */
+  $('#ovsvg').innerHTML=A.svg('0 0 640 210',`<g font-family="sans-serif" text-anchor="middle" font-weight="700">
+    <rect x="180" y="8" width="280" height="44" rx="22" fill="#fdf0ea" stroke="${R}" stroke-width="2.5"/><text x="320" y="36" font-size="18" fill="${R}">What’s the weather like?</text>
+    <path d="M320,52 V72 M110,72 H530 M110,72 V92 M320,72 V92 M530,72 V92" stroke="#bbb" stroke-width="3" fill="none"/>
+    ${[[110,'It’s + 형용사','It’s sunny.','It’s cloudy.'],[320,'There’s / There are a lot of','There’s a lot of fog.','There are a lot of clouds.'],[530,'현재진행형 (지금)','It’s raining.','It’s snowing.']].map(c=>`<rect x="${c[0]-100}" y="92" width="200" height="110" rx="14" fill="#fff" stroke="#e5d5c8" stroke-width="2"/><text x="${c[0]}" y="120" font-size="12" fill="#888">${c[1]}</text><text x="${c[0]}" y="152" font-size="15" fill="#333">${c[2]}</text><text x="${c[0]}" y="182" font-size="15" fill="#333">${c[3]}</text>`).join('')}</g>`,'three ways to answer What is the weather like');
+  $('#ocards').append(EFE.excards([
+    {pic:'☀️',en:'It’s really <b class="hl">hot</b> and <b class="hl">sunny</b>.',ko:'정말 덥고 맑아요.'},{pic:'🌧️',en:'It’s <b class="hl">raining</b>.',ko:'비가 오고 있어요. (현재진행형)'},{pic:'🌡️',en:'It’s 27 degrees <b class="hl">Celsius</b>.',ko:'섭씨 27도예요.'}]));
+
+  /* ── 13.1 ── */
+  $('#askfig').innerHTML=A.svg('-50 -112 100 120',A.fig({y:0,arms:[-40,40],top:R,pants:'#c0392b'}),'a man asking');
+  $('#ansfig').innerHTML=A.svg('-60 -112 140 120',cloud(10,-112,.9,'#9aa6b2')+A.fig({x:-20,y:0,arms:[-10,10],top:R,pants:'#c0392b'})+A.fig({x:22,y:0,arms:[-10,-160],top:R,skirt:'#c0392b',hs:'long'}),'two people looking at the clouds');
+
+  /* ── 13.2 ── */
+  $('#ex132').append(EFE.excards([
+    {pic:'😎',en:'Beautiful! It’s really <b class="hl">hot</b> and <b class="hl">sunny</b>.',ko:'멋져요! 정말 덥고 화창해요.'},
+    {pic:'☔',en:'Horrible! It’s <b class="hl">raining</b>. It’s <b class="hl">wet</b> and <b class="hl">cold</b>.',ko:'끔찍해요! 비가 오고 있어요. 축축하고 추워요. (raining = 현재진행형)'},
+    {pic:'⛄',en:'Really cold. It’s <b class="hl">snowing</b> a lot and it’s very <b class="hl">icy</b>.',ko:'정말 추워요. 눈이 많이 오고 아주 얼어붙었어요.'},
+    {pic:'🌬️',en:'There’s a <b class="hl">storm</b> coming. It’s very <b class="hl">windy</b>.',ko:'폭풍이 오고 있어요. 바람이 아주 세요.'}]));
+  EFE.puzzle($('#puz'),{pieces:[
+    {label:'시작',text:'It’s',cls:'g'},
+    {label:'정도',opts:[['really','really'],['very','very'],['(없음)','']]},
+    {label:'날씨',opts:[['sunny','sunny'],['cloudy','cloudy'],['windy','windy'],['icy','icy'],['foggy','foggy'],['raining','raining'],['snowing','snowing']],cls:'t2'}],
+    sentence:t=>t.join(' ')+'.',
+    extra:t=>({sunny:'맑아요 ☀️',cloudy:'흐려요 ☁️',windy:'바람이 불어요 🌬️',icy:'꽁꽁 얼었어요 🧊',foggy:'안개가 꼈어요 🌫️',raining:'비가 오고 있어요 🌧️ (현재진행형)',snowing:'눈이 오고 있어요 🌨️ (현재진행형)'})[t[2]]});
+
+  /* ── 13.5 ── */
+  const lv=[['It’s boiling.','#c0392b',30,'아주 더워요 (very hot)'],['It’s 27 degrees Celsius. I’m hot.','#e8542b',95,'더워요 (≈ 80°F)'],['It’s warm.','#f08a1c',160,'따뜻해요'],['It’s cold.','#1f78c8',225,'추워요'],['It’s 10 degrees Fahrenheit. I’m freezing.','#1f5fa8',290,'아주 추워요 (≈ −12°C)']];
+  $('#thermo').innerHTML=A.svg('0 0 720 340',`<g font-family="sans-serif">
+    <rect x="40" y="14" width="44" height="270" rx="22" fill="#fff" stroke="#7b3fa0" stroke-width="4"/><circle cx="62" cy="300" r="32" fill="#7b3fa0"/><rect x="54" y="150" width="16" height="150" fill="#7b3fa0"/>
+    ${Array.from({length:12},(_,i)=>`<path d="M44,${30+i*22} h10 M70,${30+i*22} h10" stroke="#7b3fa0" stroke-width="2"/>`).join('')}
+    ${lv.map(l=>`<path d="M90,${l[2]} H130" stroke="${l[1]}" stroke-width="2" stroke-dasharray="4 4"/><rect x="134" y="${l[2]-20}" width="${Math.max(170,l[0].length*10.5)}" height="40" rx="14" fill="#fff" stroke="${l[1]}" stroke-width="2.5"/><text x="148" y="${l[2]+7}" font-size="18" font-weight="700" fill="${l[1]}">${l[0]}</text><text x="${148+Math.max(170,l[0].length*10.5)+8}" y="${l[2]+6}" font-size="13" fill="#777">${l[3]}</text>`).join('')}</g>`,'thermometer with temperature phrases');
+  (function(){
+    const box=$('#conv');
+    const r=h('input',{type:'range',min:-4,max:115,value:72,'aria-label':'화씨 온도'});
+    const big=h('div',{class:'big'}), ph=h('div',{class:'ph'});
+    const word=f=>f<=32?['freezing','몹시 추워요 🥶']:f<=55?['cold','추워요 🧣']:f<=79?['warm','따뜻해요 🙂']:f<=95?['hot','더워요 ☀️']:['boiling','찌는 듯이 더워요 🥵'];
+    function up(){const f=+r.value,c=Math.round((f-32)*5/9),w=word(f);big.textContent=`${f}°F = ${c}°C`;ph.innerHTML=`It’s ${w[0]}. <small style="font-size:14px;color:var(--muted);font-weight:500">${w[1]}</small>`;}
+    r.addEventListener('input',up);
+    const sp=h('button',{class:'btn sm',type:'button'},'🔊');
+    sp.addEventListener('click',()=>{const f=+r.value;EFE.say(`It's ${f} degrees Fahrenheit. It's ${word(f)[0]}.`);});
+    box.append(h('div',null,r,big,ph,h('p',{class:'ko-note',style:{margin:'4px 0 0'}},'막대를 움직여 보세요. 섭씨 = (화씨 − 32) × 5 ÷ 9 · 단어 기준은 대략적인 느낌이에요.')),sp); up();
+  })();
+
+  /* ── 새 유형: 십자말풀이 ── */
+  EFE.TYPES.crossword=function(spec){
+    const node=h('div',{class:'exbody'});
+    const R0=spec.rows, C0=spec.cols, cells={};
+    const key=(r,c)=>r+','+c;
+    spec.words.forEach(w=>{ for(let i=0;i<w.a.length;i++){const r=w.r+(w.dir==='down'?i:0), c=w.c+(w.dir==='across'?i:0); const k=key(r,c); cells[k]=cells[k]||{r,c,ch:w.a[i]}; } });
+    const grid=h('div',{class:'cw',style:{gridTemplateColumns:`repeat(${C0},40px)`}});
+    const inputs={};
+    for(let r=0;r<R0;r++)for(let c=0;c<C0;c++){
+      const k=key(r,c), cell=cells[k];
+      if(!cell){grid.append(h('div',{class:'c'}));continue;}
+      const start=spec.words.find(w=>w.r===r&&w.c===c);
+      const inp=h('input',{maxlength:1,autocomplete:'off',autocapitalize:'none',spellcheck:'false','aria-label':`${r+1}행 ${c+1}열`});
+      const fixed=spec.words.find(w=>w.fixed&&(w.dir==='across'?w.r===r&&c>=w.c&&c<w.c+w.a.length:w.c===c&&r>=w.r&&r<w.r+w.a.length));
+      const box=h('div',{class:'c on'+(fixed?' fixed':'')},start?h('sup',null,start.n):null,inp);
+      if(fixed){inp.value=cell.ch;inp.disabled=true;}
+      inp.addEventListener('input',()=>{inp.value=inp.value.slice(-1).toLowerCase();box.classList.remove('ok','bad','rev');if(inp.value)move(r,c,1);});
+      inp.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!inp.value){move(r,c,-1);} if(e.key==='ArrowRight'){go(r,c+1);} if(e.key==='ArrowLeft'){go(r,c-1);} if(e.key==='ArrowDown'){go(r+1,c);} if(e.key==='ArrowUp'){go(r-1,c);}});
+      inp.addEventListener('focus',()=>{ if(cur&&!inWord(cur,r,c)) cur=spec.words.find(w=>!w.fixed&&inWord(w,r,c))||cur; if(!cur) cur=spec.words.find(w=>!w.fixed&&inWord(w,r,c)); });
+      cell.inp=inp; cell.box=box; cell.fixed=!!fixed; inputs[k]=cell; grid.append(box);
+    }
+    let cur=null;
+    function inWord(w,r,c){return w.dir==='across'?w.r===r&&c>=w.c&&c<w.c+w.a.length:w.c===c&&r>=w.r&&r<w.r+w.a.length;}
+    function go(r,c){const x=inputs[key(r,c)];if(x&&!x.fixed)x.inp.focus();}
+    function move(r,c,d){ if(!cur||!inWord(cur,r,c))return; const nr=r+(cur.dir==='down'?d:0), nc=c+(cur.dir==='across'?d:0); if(inWord(cur,nr,nc)){const x=inputs[key(nr,nc)]; if(x&&!x.fixed)x.inp.focus(); else if(x&&x.fixed) move(nr,nc,d);} }
+    const clueEls={};
+    const clues=h('div',{class:'cw-clues'});
+    ['across','down'].forEach(d=>{
+      clues.append(h('h4',null,d==='across'?'ACROSS 가로':'DOWN 세로'));
+      spec.words.filter(w=>w.dir===d).forEach(w=>{
+        const p=h('p',null,h('span',{class:'num'},w.n),h('span',{html:w.clue+(w.fixed?' <i style="color:var(--muted)">(예시: '+w.a+')</i>':'')}));
+        p.addEventListener('click',()=>{cur=w;const x=inputs[key(w.r,w.c)]; if(x&&!x.fixed)x.inp.focus();});
+        p.style.cursor='pointer'; clueEls[w.n+d]=p; clues.append(p);
+      });
+    });
+    if(spec.bank) node.append(h('div',{class:'bank'},spec.bank.map(b=>h('span',{class:'chip'+(b.ex?' ex':''),style:{cursor:'default'}},b.t||b))));
+    node.append(h('p',{class:'ko-note'},'👆 단서를 누르면 그 단어 첫 칸으로 이동해요. 글자를 치면 다음 칸으로 넘어가요. 방향키로도 움직일 수 있어요.'),h('div',{class:'cw-wrap'},grid,clues));
+    const todo=spec.words.filter(w=>!w.fixed);
+    const letters=w=>Array.from(w.a,(ch,i)=>inputs[key(w.r+(w.dir==='down'?i:0),w.c+(w.dir==='across'?i:0))]);
+    return {node,
+      check(){let ok=0; Object.values(inputs).forEach(x=>{if(x.fixed)return; const g=x.inp.value===x.ch; x.box.classList.remove('rev'); x.box.classList.toggle('ok',g); x.box.classList.toggle('bad',!g);});
+        todo.forEach(w=>{const g=letters(w).every(x=>x.inp.value===x.ch); clueEls[w.n+w.dir].className=g?'ok':'bad'; if(g)ok++;}); return {ok,total:todo.length};},
+      reveal(){Object.values(inputs).forEach(x=>{if(x.fixed)return;x.inp.value=x.ch;x.box.classList.remove('ok','bad');x.box.classList.add('rev');}); Object.values(clueEls).forEach(p=>p.className='');},
+      reset(){Object.values(inputs).forEach(x=>{if(x.fixed)return;x.inp.value='';x.box.classList.remove('ok','bad','rev');}); Object.values(clueEls).forEach(p=>p.className='');}
+    };
+  };
+
+  /* ── 연습문제 ── */
+  EFE.def('13.3',{type:'match',en:'MATCH THE PICTURES TO THE CORRECT SENTENCES',ko:'왼쪽 그림을 고른 뒤 그 그림에 맞는 문장을 눌러 짝지으세요.',
+    tip:'해변 = hot and sunny, 눈 덮인 산 = snow, ski, 어두운 구름 = dark and cloudy 를 찾아보세요.',
+    example:{l:SC.sail(),at:1},
+    left:[SC.beach(),SC.ski(),SC.hike()],
+    right:['This is a beautiful place, but I really want it to be sunny. It’s dark and cloudy all the time.',
+      'The weather’s good, and it’s windy today, so we’re going sailing with Sue and Louis.',
+      'The weather is beautiful here. It’s hot and sunny, and I’m having a great time.',
+      'There’s a lot of snow, so the children are having a great time. They want to learn how to ski.'],
+    ans:[2,3,0]});
+
+  EFE.def('13.4',{type:'fill',say:true,en:'FILL IN THE GAPS USING THE WORDS IN THE PANEL',ko:'보기 단어를 골라 빈칸을 채우세요. 맞으면 나타나는 🔊 를 눌러 들어 보세요.',
+    tip:'It’s ___ again → 지금 일어나는 일(현재진행형 -ing) · There’s ___ on the road → 명사 · It’s too / really ___ → 형용사',
+    bank:[{t:'sunny',ex:1},'raining','ice','stormy','foggy'],
+    example:{pic:'😎',segs:['The weather’s lovely here in San Diego. It’s really ',{a:['sunny'],w:120},'.']},
+    items:[{pic:'☔',segs:['Oh no! I hate this weather. It’s ',{a:['raining'],w:130},' again.']},
+      {pic:'🚲',segs:['I can’t ride my bike in these conditions. It’s too ',{a:['foggy'],w:120},'.']},
+      {pic:'🚗',segs:['Be careful! There’s ',{a:['ice'],w:100},' on the road.']},
+      {pic:'⛈️',segs:['Wow! It’s really ',{a:['stormy'],w:120},' outside today.']}]});
+
+  EFE.def('13.6',{type:'crossword',en:'READ THE CLUES AND WRITE THE ANSWERS IN THE CORRECT PLACES ON THE GRID',ko:'단서를 읽고 알맞은 기온 단어를 십자말풀이 칸에 쓰세요. (1번 가로는 예시)',
+    tip:'5°F ≈ −15°C(아주 추움) · 85°F ≈ 29°C(더움) · 115°F ≈ 46°C(찌는 듯이 더움). 보기: freezing, hot, boiling, cold, warm',
+    bank:[{t:'freezing',ex:1},'hot','boiling','cold','warm'],
+    rows:7,cols:8,
+    words:[{n:1,dir:'across',r:5,c:0,a:'freezing',fixed:1,clue:'It’s very cold outside. The temperature is 5°F at the moment, and I’m ______.'},
+      {n:2,dir:'across',r:3,c:4,a:'cold',clue:'I’m really ______. Can we have the heating on tonight?'},
+      {n:3,dir:'across',r:1,c:5,a:'hot',clue:'Sandra says it’s ______ in France today. It’s more than 85°F.'},
+      {n:4,dir:'down',r:0,c:6,a:'boiling',clue:'The sun is out and it’s 115°F in Turkey today. It’s ______.'},
+      {n:5,dir:'down',r:3,c:1,a:'warm',clue:'It’s ______ outside today. Everyone’s wearing T-shirts.'}]});
+
+  EFE.def('13.7',{type:'mcq',en:'LISTEN TO THE AUDIO AND ANSWER THE QUESTIONS',ko:'라디오 진행자가 북미 지역의 날씨를 알려 줘요. 듣고 질문에 알맞은 답을 고르세요.',
+    tip:'도시 이름 뒤에 나오는 기온과 날씨를 잘 들어 보세요. 대본은 아래에서 확인할 수 있어요.',
+    audio:{lines:['Good morning, and here is the weather across North America.','In Denver, it’s a lovely sunny day. It’s 72 degrees Fahrenheit.','In Kansas and Boston it’s cooler, about 60 degrees.','Up in Calgary, in Canada, it’s cloudy, and it’s 55 degrees Fahrenheit.','On the West Coast, it’s raining in San Francisco and Portland, but there’s a big storm in Seattle at the moment.','It’s very cold in Vancouver and Edmonton, but there isn’t any snow. In Anchorage, there’s a lot of snow today.','And in the south, it’s cloudy in Phoenix and Dallas, but there are no clouds in Houston. It’s hot and sunny there.']},
+    example:{q:'Where is it 72 degrees Fahrenheit?',opts:['Kansas','Boston','Denver'],ans:2},
+    items:[{q:'What is the temperature in Calgary?',opts:['52°F','55°F','60°F'],ans:1},
+      {q:'Where is there a storm at the moment?',opts:['San Francisco','Seattle','Portland'],ans:1},
+      {q:'Where is there snow today?',opts:['Vancouver','Edmonton','Anchorage'],ans:2},
+      {q:'Where are there no clouds?',opts:['Phoenix','Houston','Dallas'],ans:1}]});
+
+  EFE.def('13.8',{type:'write',say:true,en:'WRITE EACH SENTENCE IN ITS OTHER FORM',ko:'“It’s + 형용사” 문장은 “There’s / There are a lot of + 명사” 로, 반대로도 바꿔 쓰세요.',
+    tip:'icy ↔ a lot of ice · windy ↔ a lot of wind · rainy ↔ a lot of rain · The sun is shining ↔ It’s sunny · cloudy ↔ a lot of clouds (clouds 는 복수 → There are)',
+    example:{pic:'🌫️',head:'There’s a lot of fog.',segs:[{a:['It’s very foggy.'],w:'full'}]},
+    items:[{pic:'🧊',head:'It’s very icy.',segs:[{a:['There’s a lot of ice.','There is a lot of ice.'],w:'full'}]},
+      {pic:'🌬️',head:'There’s a lot of wind.',segs:[{a:['It’s very windy.','It is very windy.'],w:'full'}]},
+      {pic:'🌧️',head:'There’s a lot of rain.',segs:[{a:['It’s very rainy.','It is very rainy.'],w:'full'}]},
+      {pic:'☀️',head:'The sun is shining.',segs:[{a:['It’s sunny.','It is sunny.','It’s very sunny.','It is very sunny.'],w:'full'}]},
+      {pic:'☁️',head:'It’s very cloudy.',segs:[{a:['There are a lot of clouds.'],w:'full'}]}]});
+
+  EFE.checklist($('#checklist'),['Weather descriptions','Temperature words','Talking about the weather']);
+  EFE.go();
+})();
+</script>
+</body>
+</html>

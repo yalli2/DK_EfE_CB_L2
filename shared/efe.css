@@ -1,6 +1,6 @@
 /* English for Everyone · Level 2 Beginner — 공통 스타일 */
-:root{
-  --h:28;
+:root{--h:28}
+:root,body{
   --accent:hsl(var(--h) 82% 44%);
   --accent-d:hsl(var(--h) 80% 32%);
   --accent-soft:hsl(var(--h) 90% 94%);
@@ -12,7 +12,7 @@
   --font:"Pretendard Variable","Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root,body{
     --accent:hsl(var(--h) 80% 62%); --accent-d:hsl(var(--h) 85% 74%);
     --accent-soft:hsl(var(--h) 28% 18%); --accent-mid:hsl(var(--h) 35% 30%);
     --bg:#14161c; --card:#1d212b; --ink:#eceef3; --muted:#a3abbd; --line:#2d3342;
@@ -22,6 +22,9 @@
 }
 body[data-unit="1"]{--h:28} body[data-unit="2"]{--h:272} body[data-unit="3"]{--h:170}
 body[data-unit="4"]{--h:208} body[data-unit="5"]{--h:334} body[data-unit="0"]{--h:28}
+body[data-unit="6"]{--h:200} body[data-unit="7"]{--h:22} body[data-unit="8"]{--h:250} body[data-unit="9"]{--h:150}
+body[data-unit="10"]{--h:350} body[data-unit="11"]{--h:190} body[data-unit="12"]{--h:212} body[data-unit="13"]{--h:40}
+body[data-unit="14"]{--h:290} body[data-unit="15"]{--h:162}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
@@ -38,7 +41,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .topbar a.home{text-decoration:none;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;white-space:nowrap}
 .topbar .badge{background:var(--accent);color:#fff;border-radius:8px;padding:1px 9px;font-weight:800;font-size:14px}
 .topbar .sp{flex:1}
-.topbar .nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px}
+.topbar .nav a{color:var(--muted);text-decoration:none;font-size:13.5px;padding:5px 6px;border-radius:8px}
 .topbar .nav a:hover{background:var(--accent-soft);color:var(--accent-d)}
 .prog{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);white-space:nowrap}
 .prog .bar{width:88px;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
@@ -317,3 +320,5 @@ footer p{max-width:760px;margin:6px auto}
 @keyframes fly{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.4)}}
 @media print{.topbar,.exbar,.toc,.unitnav{display:none}.mod{break-inside:avoid;box-shadow:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media(max-width:860px){.topbar .nav{display:none}}
