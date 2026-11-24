@@ -130,7 +130,7 @@
   };
   EFE.excards = function (list) {
     return h('div', { class: 'exs' }, list.map(x => {
-      const c = h('div', { class: 'exc', 'data-say': stripTags(x.en) },
+      const c = h('div', { class: 'exc', 'data-say': stripTags(String(x.en).split(/<br\s*\/?>/i).pop()) },
         h('div', { class: 'pic', html: x.pic }),
         h('div', { class: 'tx' }, h('span', { html: x.en }), x.ko ? h('span', { class: 'ko' }, x.ko) : null));
       return c;
@@ -238,7 +238,9 @@
         h('span', { class: 'donebadge' }, '완료 ✓')),
       h('div', { class: 'mod-body' }, spec.intro ? h('div', { class: 'exnote show tip', style: { display: 'block' }, html: spec.intro }) : null, inst.node, bar, note));
     const b = bucket();
+    const emit = d => { try { document.dispatchEvent(new CustomEvent('efe:result', { detail: Object.assign({ unit: U, id }, d) })); } catch (e) { /* 무시 */ } };
     function finish(r, revealed) {
+      emit(revealed ? { revealed: true } : { ok: r.ok, total: r.total });
       if (revealed) { res.className = 'res mid'; res.textContent = '정답을 확인했어요. 다시 풀기로 도전해 보세요!'; return; }
       const pct = r.total ? r.ok / r.total : 0;
       res.className = 'res ' + (pct === 1 ? 'good' : pct >= .6 ? 'mid' : 'low');
@@ -250,7 +252,7 @@
     }
     bCheck.addEventListener('click', () => { EFE.stopSay(); finish(inst.check(), false); });
     bShow.addEventListener('click', () => { EFE.stopSay(); inst.reveal(); finish({}, true); });
-    bReset.addEventListener('click', () => { EFE.stopSay(); inst.reset(); res.textContent = ''; res.className = 'res'; note.classList.remove('show'); card.classList.remove('done'); delete b.done[id]; persist(); EFE.refresh(); });
+    bReset.addEventListener('click', () => { EFE.stopSay(); inst.reset(); res.textContent = ''; res.className = 'res'; note.classList.remove('show'); card.classList.remove('done'); delete b.done[id]; persist(); EFE.refresh(); emit({ reset: true }); });
     if (b.done[id]) card.classList.add('done');
     ph.replaceWith(card); exs[id] = { el: card, inst, spec };
   }
