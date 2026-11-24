@@ -38,6 +38,6 @@
 ## 🎙 말하기 (녹음 + 발음 인식)
 - 각 단원 끝 **Speaking Challenge** 10문장, 그리고 페이지 곳곳의 🎙 버튼(예문·단어 카드·말하기 문제).
 - 녹음하면 발음 인식으로 정확도(%)와 단어별 맞음/틀림을 보여 주고, ▶ 내 녹음 듣기 · ⬇ 녹음 저장이 됩니다. 녹음 파일은 학생 기기에만 남습니다.
-- 발음 인식은 Chrome · Edge · Safari 에서 작동합니다(인터넷 필요). 지원하지 않는 브라우저는 녹음·듣기만 됩니다.
+- 채점: 먼저 브라우저 음성 인식(Chrome·Edge·Safari)으로 바로 채점하고, 인식이 결과를 못 주면(마이크 충돌, 카카오톡 인앱 브라우저, Firefox 등) **녹음 파일을 AI(Whisper tiny.en, 브라우저 안에서 실행)로 분석**해 채점합니다. 처음 한 번 약 40MB를 내려받고 이후엔 캐시를 씁니다. 학교 방화벽이 cdn.jsdelivr.net · huggingface.co 를 막으면 AI 분석이 되지 않습니다.
 - 코드: `shared/class.js`
 - GitHub Pages: Settings → Pages → Branch `main` / `(root)`.

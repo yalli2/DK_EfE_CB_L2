@@ -391,7 +391,6 @@
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   const CAN_REC = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   const recs = new Map();     // key → {url, ext}
-  let srOnly = false; try { srOnly = sessionStorage.getItem('efe.class.srOnly') === '1'; } catch (e) { /* 무시 */ }
   const Coach = { el: null, busy: false, stopFn: null, text: '', key: '' };
   function coachEl() {
     if (Coach.el) return Coach.el;
@@ -412,84 +411,164 @@
     $('#clTx', el).textContent = text;
     capture(text);
   }
-  async function capture(text, retrySrOnly) {
+  /* AI 음성 분석(Whisper, 브라우저 안에서 실행) — 브라우저 음성 인식이 결과를 못 줄 때 녹음 파일로 채점 */
+  const WHISPER = { lib: 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1', model: 'Xenova/whisper-tiny.en', p: null, onProg: null, files: {} };
+  function loadAsr() {
+    if (!WHISPER.p) {
+      WHISPER.p = (async () => {
+        const T = await import(WHISPER.lib);
+        T.env.allowLocalModels = false;
+        return T.pipeline('automatic-speech-recognition', WHISPER.model, {
+          progress_callback: d => {
+            if (d && d.status === 'progress' && d.file) { WHISPER.files[d.file] = [d.loaded || 0, d.total || 0]; }
+            if (WHISPER.onProg) { let l = 0, t = 0; for (const f in WHISPER.files) { l += WHISPER.files[f][0]; t += WHISPER.files[f][1]; } WHISPER.onProg(t ? l / t : 0, t); }
+          }
+        });
+      })();
+      WHISPER.p.catch(() => { WHISPER.p = null; });
+    }
+    return WHISPER.p;
+  }
+  async function blobToPcm(blob) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ac = new AC(); const raw = await blob.arrayBuffer();
+    const ab = await new Promise((res, rej) => { const p = ac.decodeAudioData(raw, res, rej); if (p && p.then) p.then(res, rej); });
+    ac.close && ac.close().catch(() => { });
+    const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    const off = new OAC(1, Math.max(1, Math.ceil(ab.duration * 16000)), 16000);
+    const src = off.createBufferSource(); src.buffer = ab; src.connect(off.destination); src.start(0);
+    const r = await off.startRendering(); return r.getChannelData(0);
+  }
+  async function whisperText(blob, onProg) {
+    WHISPER.onProg = onProg;
+    const asr = await loadAsr();
+    const pcm = await blobToPcm(blob);
+    let mx = 0; for (let i = 0; i < pcm.length; i += 16) mx = Math.max(mx, Math.abs(pcm[i]));
+    if (mx < 0.015) return '';                                   // 거의 무음
+    const out = await asr(pcm);
+    const t = String((out && out.text) || '').trim();
+    return /^[\[(].*[\])]$/.test(t) ? '' : t;                    // [BLANK_AUDIO] 등
+  }
+  const sget = k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
+  const sset = (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) { /* 무시 */ } };
+
+  async function capture(text) {
     const body = $('#clBody', Coach.el);
     if (!SR && !CAN_REC) { body.innerHTML = `<p class="cl-note">이 브라우저는 마이크 녹음을 지원하지 않아요. <b>Chrome · Edge · Safari</b> 최신 버전을 사용해 주세요.</p>`; return; }
     Coach.busy = true;
-    body.innerHTML = `<div class="cl-state"><span class="cl-recdot"></span><b>듣고 있어요… 지금 말하세요!</b><div class="cl-meter"><i id="clMeter"></i></div><button class="cl-btn sm red" type="button" id="clStop">⏹ 멈추기</button><div class="cl-interim" id="clInterim">${SR ? '' : '이 브라우저는 발음 인식이 안 돼서 녹음만 해요. 말한 뒤 ⏹ 를 눌러 주세요.'}</div></div>`;
-    let stream = null, recorder = null, chunks = [], recog = null, ac = null, raf = 0, ended = false, alts = [], err = '', cancelled = false;
-    const useRec = CAN_REC && !(srOnly && SR);
-    const finish = () => {
-      if (ended) return; ended = true; Coach.busy = false; Coach.stopFn = null;
+    // sr: 브라우저 음성 인식 + 녹음 동시 / ai: 녹음 → AI 분석 (인식이 안 되는 기기)
+    const mode = (!SR || sget('efe.class.asr') === 'ai') && CAN_REC ? 'ai' : 'sr';
+    body.innerHTML = `<div class="cl-state"><span class="cl-recdot"></span><b id="clMsg">듣고 있어요… 지금 말하세요!</b><div class="cl-meter"><i id="clMeter"></i></div><button class="cl-btn sm red" type="button" id="clStop">⏹ 멈추기</button><div class="cl-interim" id="clInterim">${mode === 'ai' ? '다 말하면 자동으로 멈춰요. (또는 ⏹)' : ''}</div></div>`;
+    const S = { alts: [], interim: '', err: '', chunks: [], stopping: false, done: false, cancelled: false, vad: mode === 'ai', spoke: false, t0: Date.now(), loud: 0, srEnded: !SR || mode === 'ai' };
+    let stream = null, recorder = null, recog = null, ac = null, raf = 0;
+    const setMsg = m => { const e = $('#clMsg'); if (e) e.textContent = m; };
+    const stopAll = () => {
+      if (S.stopping) return; S.stopping = true;
+      if (recog && !S.srEnded) try { recog.stop(); } catch (e) { /* 무시 */ }
       cancelAnimationFrame(raf); if (ac) ac.close().catch(() => { });
-      const done = () => { if (stream) stream.getTracks().forEach(t => t.stop()); if (!cancelled) showResult(text, alts, err, retrySrOnly); };
-      if (recorder && recorder.state !== 'inactive') { recorder.onstop = () => { saveBlob(); done(); }; try { recorder.stop(); } catch (e) { done(); } } else done();
+      if (recorder && recorder.state !== 'inactive') { recorder.onstop = () => afterStop(); try { recorder.stop(); } catch (e) { afterStop(); } }
+      else afterStop();
     };
-    const saveBlob = () => {
-      if (!chunks.length) return;
-      const type = recorder.mimeType || 'audio/webm'; const blob = new Blob(chunks, { type });
-      const old = recs.get(Coach.key); if (old) URL.revokeObjectURL(old.url);
-      recs.set(Coach.key, { url: URL.createObjectURL(blob), ext: /mp4|aac|m4a/.test(type) ? 'm4a' : /ogg/.test(type) ? 'ogg' : 'webm' });
-      document.dispatchEvent(new CustomEvent('efec:rec', { detail: { key: Coach.key } }));
+    const afterStop = () => {
+      if (stream) stream.getTracks().forEach(t => t.stop());
+      // 녹음이 끝나도 인식 결과가 늦게 올 수 있어 잠깐 기다림
+      const wait = () => (S.srEnded || Date.now() - S.stopAt > 1500) ? process() : setTimeout(wait, 100);
+      S.stopAt = Date.now(); wait();
     };
-    Coach.stopFn = cancel => {
-      if (cancel) cancelled = true;
-      if (recog) { try { recog.stop(); } catch (e) { finish(); } } else finish();
-    };
-    $('#clStop').onclick = () => Coach.stopFn && Coach.stopFn();
-    try {
-      if (useRec) {
-        stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-        const mime = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg'].find(m => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m));
-        recorder = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
-        recorder.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
-        recorder.start();
-        try {   // 소리 크기 표시
-          ac = new (window.AudioContext || window.webkitAudioContext)(); const an = ac.createAnalyser(); an.fftSize = 512;
-          ac.createMediaStreamSource(stream).connect(an); const buf = new Uint8Array(an.fftSize);
-          const tick = () => { an.getByteTimeDomainData(buf); let mx = 0; for (const v of buf) mx = Math.max(mx, Math.abs(v - 128)); const m = $('#clMeter'); if (m) m.style.width = Math.min(100, mx / 70 * 100) + '%'; raf = requestAnimationFrame(tick); };
-          tick();
-        } catch (e) { /* 미터 없이 진행 */ }
+    const process = async () => {
+      if (S.done) return; S.done = true;
+      let blob = null;
+      if (S.chunks.length) {
+        const type = recorder.mimeType || 'audio/webm'; blob = new Blob(S.chunks, { type });
+        const old = recs.get(Coach.key); if (old) URL.revokeObjectURL(old.url);
+        recs.set(Coach.key, { url: URL.createObjectURL(blob), ext: /mp4|aac|m4a/.test(type) ? 'm4a' : /ogg/.test(type) ? 'ogg' : 'webm' });
+        document.dispatchEvent(new CustomEvent('efec:rec', { detail: { key: Coach.key } }));
       }
-    } catch (e) {
-      Coach.busy = false;
-      body.innerHTML = `<p class="cl-note">🎙 마이크를 쓸 수 없어요. 주소창 왼쪽 🔒 → <b>마이크 허용</b>으로 바꾼 뒤 다시 눌러 주세요.${location.protocol === 'file:' ? '<br>(파일로 열면 마이크가 막힐 수 있어요. 웹 주소로 열어 주세요.)' : ''}</p>`;
-      return;
+      if (S.cancelled) { Coach.busy = false; Coach.stopFn = null; return; }
+      let alts = S.alts.length ? S.alts : (S.interim ? [S.interim] : []), via = 'sr', aiErr = '';
+      if (!alts.length && blob && S.err !== 'not-allowed') {        // 인식 결과가 없으면 녹음 파일을 AI로 분석
+        via = 'ai';
+        body.innerHTML = `<div class="cl-state"><b>🧠 녹음을 분석하고 있어요…</b><div class="cl-meter"><i id="clProg" style="width:5%;background:var(--accent,#e2711d)"></i></div><div class="cl-interim" id="clProgTx">잠시만 기다려 주세요.</div></div>`;
+        try {
+          const t = await whisperText(blob, (p, total) => {
+            const b = $('#clProg'), tx = $('#clProgTx'); if (b) b.style.width = Math.max(5, Math.round(p * 100)) + '%';
+            if (tx && total) tx.textContent = `발음 분석기 내려받는 중… ${Math.round(p * 100)}% (처음 한 번만, 약 ${Math.round(total / 1048576)}MB)`;
+          });
+          const tx = $('#clProgTx'); if (tx) tx.textContent = '분석 중…';
+          if (t) { alts = [t]; if (SR && mode === 'sr') sset('efe.class.asr', 'ai'); }
+          else S.err = S.err || 'no-speech';
+        } catch (e) { console.warn('whisper', e); aiErr = 'load'; }
+      }
+      Coach.busy = false; Coach.stopFn = null;
+      showResult(text, alts, S.err, { via, aiErr, mode });
+    };
+    Coach.stopFn = cancel => { if (cancel) S.cancelled = true; stopAll(); };
+    $('#clStop').onclick = () => Coach.stopFn && Coach.stopFn();
+    if (CAN_REC) {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      } catch (e) {
+        if (!SR) { Coach.busy = false; body.innerHTML = micDenied(); return; }
+        stream = null;                                            // 녹음은 못 해도 인식은 시도
+      }
     }
-    if (SR) {
+    if (stream) {
+      const mime = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg'].find(m => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m));
+      try { recorder = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined); } catch (e) { recorder = new MediaRecorder(stream); }
+      recorder.ondataavailable = e => { if (e.data && e.data.size) S.chunks.push(e.data); };
+      recorder.start(250);
+      try {   // 소리 크기 표시 + 말이 끝나면 자동 멈춤
+        ac = new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume().catch(() => { });
+        const an = ac.createAnalyser(); an.fftSize = 1024; ac.createMediaStreamSource(stream).connect(an); const buf = new Uint8Array(an.fftSize);
+        const tick = () => {
+          an.getByteTimeDomainData(buf); let mx = 0; for (const v of buf) mx = Math.max(mx, Math.abs(v - 128));
+          const m = $('#clMeter'); if (m) m.style.width = Math.min(100, mx / 70 * 100) + '%';
+          const now = Date.now();
+          if (mx > 14) { S.spoke = true; S.loud = now; }
+          if (S.vad && !S.stopping && ((S.spoke && now - S.loud > 1400) || now - S.t0 > 15000 || (!S.spoke && now - S.t0 > 8000))) { stopAll(); return; }
+          raf = requestAnimationFrame(tick);
+        };
+        tick();
+      } catch (e) { S.vad = false; }
+      if (S.vad && !ac) setTimeout(() => { if (!S.stopping) stopAll(); }, Math.min(10000, 2500 + text.split(/\s+/).length * 600));
+    }
+    if (SR && mode === 'sr') {
       recog = new SR(); recog.lang = 'en-US'; recog.interimResults = true; recog.maxAlternatives = 5; recog.continuous = false;
       recog.onresult = ev => {
         let fin = null, interim = '';
-        for (const r of ev.results) { if (r.isFinal) fin = r; else interim += r[0].transcript; }
-        if (fin) alts = Array.from(fin).map(a => a.transcript);
+        for (let i = 0; i < ev.results.length; i++) { const r = ev.results[i]; if (r.isFinal) fin = r; else interim += r[0].transcript; }
+        if (fin) S.alts = Array.from({ length: fin.length }, (_, i) => fin[i].transcript).filter(Boolean);
+        if (interim) S.interim = interim; else if (fin) S.interim = fin[0].transcript;
         const im = $('#clInterim'); if (im) im.textContent = fin ? fin[0].transcript : interim;
       };
-      recog.onerror = ev => { err = ev.error || 'error'; };
+      recog.onerror = ev => { S.err = ev.error || 'error'; };
       recog.onend = () => {
-        if (err === 'audio-capture' && useRec && !retrySrOnly) {           // 녹음과 인식을 동시에 못 하는 기기 → 인식만
-          srOnly = true; try { sessionStorage.setItem('efe.class.srOnly', '1'); } catch (e) { /* 무시 */ } ended = true; Coach.busy = false;
-          if (recorder && recorder.state !== 'inactive') try { recorder.stop(); } catch (e) { /* 무시 */ }
-          if (stream) stream.getTracks().forEach(t => t.stop()); cancelAnimationFrame(raf);
-          setTimeout(() => capture(text, true), 250); return;
+        S.srEnded = true;
+        if (S.stopping) return;
+        if (S.alts.length || S.interim) { stopAll(); return; }
+        if (recorder && recorder.state === 'recording' && S.err !== 'not-allowed') {
+          // 인식이 소리를 못 받은 경우(녹음과 마이크 충돌 등) → 녹음은 계속, 말이 끝나면 AI로 분석
+          S.vad = true; setMsg('듣고 있어요… 다 말하면 자동으로 멈춰요');
+          if (!S.spoke) S.t0 = Date.now();
+          return;
         }
-        setTimeout(finish, 250);
+        stopAll();
       };
-      try { recog.start(); } catch (e) { err = 'start'; finish(); return; }
-      setTimeout(() => { if (!ended && recog) try { recog.stop(); } catch (e) { /* 무시 */ } }, 12000);
-    } else {
-      const words = text.split(/\s+/).length; setTimeout(() => { if (!ended) finish(); }, Math.min(10000, 2500 + words * 600));
-    }
+      try { recog.start(); } catch (e) { S.srEnded = true; S.vad = !!recorder; if (!recorder) stopAll(); }
+      setTimeout(() => { if (!S.stopping && !S.srEnded && recog) try { recog.stop(); } catch (e) { /* 무시 */ } }, 12000);
+    } else if (!recorder) stopAll();
   }
-  function showResult(text, alts, err, srOnlyMode) {
+  const micDenied = () => `<p class="cl-note">🎙 마이크를 쓸 수 없어요. 주소창 왼쪽 🔒 → <b>마이크 허용</b>으로 바꾼 뒤 다시 눌러 주세요.${location.protocol === 'file:' ? '<br>(파일로 열면 마이크가 막힐 수 있어요. 웹 주소로 열어 주세요.)' : ''}</p>`;
+  function showResult(text, alts, err, info) {
+    info = info || {};
     const body = $('#clBody', Coach.el); if (!body) return;
     const r = recs.get(Coach.key);
     const recBtns = r ? `<button class="cl-btn ghost sm" type="button" id="clPlay">▶ 내 녹음 듣기</button><a class="cl-btn ghost sm" id="clDl" href="${r.url}" download="EfE-U${UNIT || 0}-${nrm(text).split(' ').slice(0, 5).join('_') || 'speaking'}.${r.ext}">⬇ 녹음 저장</a>` : '';
     const common = `<button class="cl-btn ghost sm" type="button" id="clNative">🔊 원어민 발음</button>${recBtns}<button class="cl-btn sm" type="button" id="clAgain">🎙 다시 녹음</button>`;
     let html;
-    if (!SR) {
-      html = `<p class="cl-note">이 브라우저는 <b>발음 인식</b>을 지원하지 않아 점수는 나오지 않아요. 녹음을 듣고 원어민 발음과 비교해 보세요. (점수는 Chrome · Edge · Safari에서)</p>`;
-    } else if (!alts.length) {
-      const why = { 'no-speech': '소리가 들리지 않았어요. 마이크 가까이에서 또렷하게 말해 보세요.', 'not-allowed': '마이크 권한이 꺼져 있어요. 주소창의 🔒에서 마이크를 허용해 주세요.', 'service-not-allowed': '음성 인식이 막혀 있어요. 브라우저 설정에서 음성 인식을 허용해 주세요.', network: '음성 인식은 인터넷 연결이 필요해요.', 'audio-capture': '마이크를 찾을 수 없어요.' }[err] || '잘 알아듣지 못했어요. 다시 한 번 말해 볼까요?';
+    if (!alts.length) {
+      const why = info.aiErr === 'load' ? '발음 분석기를 불러오지 못했어요. 인터넷 연결을 확인한 뒤 다시 녹음해 주세요. (학교 방화벽이 cdn.jsdelivr.net · huggingface.co 를 막고 있을 수 있어요)'
+        : ({ 'no-speech': '소리가 들리지 않았어요. 마이크 가까이에서 또렷하게 말해 보세요.', 'not-allowed': '마이크 권한이 꺼져 있어요. 주소창의 🔒에서 마이크를 허용해 주세요.', 'service-not-allowed': '음성 인식이 막혀 있어요. 브라우저 설정에서 음성 인식을 허용해 주세요.', network: '음성 인식은 인터넷 연결이 필요해요.', 'audio-capture': '마이크를 찾을 수 없어요.' }[err] || '잘 알아듣지 못했어요. 다시 한 번 말해 볼까요?');
       html = `<p class="cl-note">🤔 ${why}</p>`;
     } else {
       const sc = score(text, alts), pct = sc.pct;
@@ -499,10 +578,9 @@
       let gain = 0, msg = '';
       if (IS_UNIT && logged()) gain = saveUnitRec(rec => { rec.sp = rec.sp || {}; rec.sp[Coach.key] = Math.max(rec.sp[Coach.key] || 0, pct); });
       else if (IS_UNIT && !logged()) msg = '<div class="cl-heard">🔐 로그인하면 말하기 점수도 우리반 순위에 올라가요.</div>';
-      html = `<div class="cl-res"><div class="cl-ring" style="--p:${pct};--c:${color}"><span>${pct}</span></div><div style="flex:1;min-width:200px"><div class="cl-verdict">${verdict}${gain > 0 ? `<span class="cl-pts">+${gain}점</span>` : ''}</div><div class="cl-heard">들린 문장: “${esc(sc.heard)}”</div><div class="cl-diff">${nrm(text).split(' ').map((w, i) => `<span class="${ok[i] ? 'ok' : 'miss'}">${esc(w)}</span>`).join(' ')}</div>${msg}</div></div>`;
+      html = `<div class="cl-res"><div class="cl-ring" style="--p:${pct};--c:${color}"><span>${pct}</span></div><div style="flex:1;min-width:200px"><div class="cl-verdict">${verdict}${gain > 0 ? `<span class="cl-pts">+${gain}점</span>` : ''}</div><div class="cl-heard">들린 문장: “${esc(sc.heard)}”${info.via === 'ai' ? ' <small>· 🧠 AI 분석</small>' : ''}</div><div class="cl-diff">${nrm(text).split(' ').map((w, i) => `<span class="${ok[i] ? 'ok' : 'miss'}">${esc(w)}</span>`).join(' ')}</div>${msg}</div></div>`;
       if (Coach.onDone) try { Coach.onDone(pct); } catch (e) { /* 무시 */ }
     }
-    if (srOnlyMode) html += `<p class="cl-note">ℹ️ 이 기기는 녹음과 발음 인식을 동시에 할 수 없어 <b>인식만</b> 했어요.</p>`;
     body.innerHTML = html + `<div class="cl-acts">${common}</div>`;
     $('#clNative').onclick = () => say(text);
     $('#clAgain').onclick = () => capture(text);
