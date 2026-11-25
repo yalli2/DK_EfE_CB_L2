@@ -488,13 +488,13 @@
       let alts = S.alts.length ? S.alts : (S.interim ? [S.interim] : []), via = 'sr', aiErr = '';
       if (!alts.length && blob && S.err !== 'not-allowed') {        // 인식 결과가 없으면 녹음 파일을 AI로 분석
         via = 'ai';
-        body.innerHTML = `<div class="cl-state"><b>🧠 녹음을 분석하고 있어요…</b><div class="cl-meter"><i id="clProg" style="width:5%;background:var(--accent,#e2711d)"></i></div><div class="cl-interim" id="clProgTx">잠시만 기다려 주세요.</div></div>`;
+        body.innerHTML = `<div class="cl-state"><b>🎙 음성 분석중입니다.</b><div class="cl-meter"><i id="clProg" style="width:5%;background:var(--accent,#e2711d)"></i></div><div class="cl-interim" id="clProgTx">잠시만 기다려 주세요.</div></div>`;
         try {
           const t = await whisperText(blob, (p, total) => {
             const b = $('#clProg'), tx = $('#clProgTx'); if (b) b.style.width = Math.max(5, Math.round(p * 100)) + '%';
             if (tx && total) tx.textContent = `발음 분석기 내려받는 중… ${Math.round(p * 100)}% (처음 한 번만, 약 ${Math.round(total / 1048576)}MB)`;
           });
-          const tx = $('#clProgTx'); if (tx) tx.textContent = '분석 중…';
+          const tx = $('#clProgTx'); if (tx) tx.textContent = '음성 분석중입니다.';
           if (t) { alts = [t]; if (SR && mode === 'sr') sset('efe.class.asr', 'ai'); }
           else S.err = S.err || 'no-speech';
         } catch (e) { console.warn('whisper', e); aiErr = 'load'; }
@@ -578,7 +578,7 @@
       let gain = 0, msg = '';
       if (IS_UNIT && logged()) gain = saveUnitRec(rec => { rec.sp = rec.sp || {}; rec.sp[Coach.key] = Math.max(rec.sp[Coach.key] || 0, pct); });
       else if (IS_UNIT && !logged()) msg = '<div class="cl-heard">🔐 로그인하면 말하기 점수도 우리반 순위에 올라가요.</div>';
-      html = `<div class="cl-res"><div class="cl-ring" style="--p:${pct};--c:${color}"><span>${pct}</span></div><div style="flex:1;min-width:200px"><div class="cl-verdict">${verdict}${gain > 0 ? `<span class="cl-pts">+${gain}점</span>` : ''}</div><div class="cl-heard">들린 문장: “${esc(sc.heard)}”${info.via === 'ai' ? ' <small>· 🧠 AI 분석</small>' : ''}</div><div class="cl-diff">${nrm(text).split(' ').map((w, i) => `<span class="${ok[i] ? 'ok' : 'miss'}">${esc(w)}</span>`).join(' ')}</div>${msg}</div></div>`;
+      html = `<div class="cl-res"><div class="cl-ring" style="--p:${pct};--c:${color}"><span>${pct}</span></div><div style="flex:1;min-width:200px"><div class="cl-verdict">${verdict}${gain > 0 ? `<span class="cl-pts">+${gain}점</span>` : ''}</div><div class="cl-heard">들린 문장: “${esc(sc.heard)}”${info.via === 'ai' ? ' <small>· 🎙 음성 분석</small>' : ''}</div><div class="cl-diff">${nrm(text).split(' ').map((w, i) => `<span class="${ok[i] ? 'ok' : 'miss'}">${esc(w)}</span>`).join(' ')}</div>${msg}</div></div>`;
       if (Coach.onDone) try { Coach.onDone(pct); } catch (e) { /* 무시 */ }
     }
     body.innerHTML = html + `<div class="cl-acts">${common}</div>`;
